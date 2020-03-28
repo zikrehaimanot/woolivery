@@ -136,7 +136,7 @@ module.exports = function(app, passport, db) {
     //   })
     // })
 
-    app.delete('/reviews', (req, res) => {
+    app.delete('/orders', (req, res) => {
       //deletemethod:Deletes a single document based on the filter and sort criteria, returning the deleted document https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndDelete/
       db.collection('orders').findOneAndDelete({name: req.body.name, email: req.body.email, review: req.body.review}, (err, result) => {//looks at messages collection,s finds and deletes.
         if (err) return res.send(500, err)//if error, send error

@@ -65,7 +65,6 @@ Array.from(trash).forEach(function(element) {
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const email = this.parentNode.parentNode.childNodes[3].innerText
         const review = this.parentNode.parentNode.childNodes[5].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
         fetch('orders', {
           method: 'delete',
           headers: {
@@ -73,9 +72,8 @@ Array.from(trash).forEach(function(element) {
           },
           body: JSON.stringify({
             'name': name,
-            'email': email,
-            'review':review,
-            'thumbUp':thumbUp
+            // 'email': email,
+            'review':review
           })
         }).then(function (response) {
          window.location.reload() //take the response and reload the page
