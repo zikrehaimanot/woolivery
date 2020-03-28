@@ -9,6 +9,10 @@ module.exports = function(app, passport, db) {
     //tells us what page to render in the dom
     res.render('index.ejs');
   });
+  app.get('/profile', function(req, res) {
+    //tells us what page to render in the dom
+    res.render('profile.ejs');
+  });
   app.get('/generic', function(req, res) {
     //tells us what page to render in the dom
     res.render('generic.ejs');
@@ -73,15 +77,15 @@ module.exports = function(app, passport, db) {
     res.render('customerSignUp.ejs');
   });
     // PROFILE SECTION =========================
-    app.get('/reviews',function(req, res) {
+    app.get('/profile',function(req, res) {
       //get request grabs profile function
       // routes js line 14-19 is our request. GET is what we use to achieve this
         db.collection('orders').find().toArray((err, result) => {
           //reuest to grabbatabase collection named message,into array
           if (err) return console.log(err)
           //conditional console logged for error
-          res.render('reviews.ejs', {
-            user : req.user,
+          res.render('profile.ejs', {
+          
             orders: result
           })
         })
@@ -95,7 +99,7 @@ module.exports = function(app, passport, db) {
 
 // message board routes ===============================================================
     //Create
-    app.post('/orders', (req, res) => {
+    app.post('/messages', (req, res) => {
       db.collection('orders').save({name: req.body.name, email: req.body.email, review: req.body.review,thumbUp: 0}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
@@ -103,7 +107,7 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    app.put('/orders', (req, res) => {
+    app.put('/messages', (req, res) => {
       db.collection('orders')
       .findOneAndUpdate({name: req.body.name, email: req.body.email, review:req.body.review}, {
         $set: {
@@ -118,7 +122,7 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    app.put('/orders', (req, res) => {
+    app.put('/messages', (req, res) => {
       db.collection('orders')
       .findOneAndUpdate({name: req.body.name, email: req.body.email, review:req.body.review}, {
         $set: {
@@ -135,7 +139,7 @@ module.exports = function(app, passport, db) {
 
     app.delete('/messages', (req, res) => {
       //deletemethod:Deletes a single document based on the filter and sort criteria, returning the deleted document https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndDelete/
-      db.collection('messages').findOneAndDelete({name: req.body.name, email: req.body.email,review: req.body.review}, (err, result) => {//looks at messages collection,s finds and deletes.
+      db.collection('orders').findOneAndDelete({name: req.body.name, email: req.body.email,review: req.body.review}, (err, result) => {//looks at messages collection,s finds and deletes.
         if (err) return res.send(500, err)//if error, send error
         res.send('Message deleted!')
       })
