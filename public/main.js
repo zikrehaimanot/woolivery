@@ -1,6 +1,6 @@
 var thumbUp = document.getElementsByClassName("fa-thumbs-up");
 var thumbDown = document.getElementsByClassName("fa-thumbs-down");
-var trash = document.getElementsByClassName("fa-trash");
+var trash = document.getElementsByClassName("fa fa-trash");
 
 
 
@@ -65,6 +65,7 @@ Array.from(trash).forEach(function(element) {
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const email = this.parentNode.parentNode.childNodes[3].innerText
         const review = this.parentNode.parentNode.childNodes[5].innerText
+        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
         fetch('orders', {
           method: 'delete',
           headers: {
@@ -77,7 +78,7 @@ Array.from(trash).forEach(function(element) {
             'thumbUp':thumbUp
           })
         }).then(function (response) {
-          window.location.reload() //take the response and reload the page
+         window.location.reload() //take the response and reload the page
         })
       });
 });
