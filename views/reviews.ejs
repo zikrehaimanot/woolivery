@@ -45,23 +45,20 @@
 									</header>
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 									<ul class="messages">
-					          <% for(var i=0; i< orders.length; i++) {%> <!-- a for loop to go over the class="message" displaying the name, message, thumbUp, thumbDown and trashcan. In addition to any other feature you want to add-->
-					           	<!-- if condition to only display user messages -->
-					          <li class="message">
-					            <span><%= messages[i].name%></span>
-					            <span><%= messages[i].email %></span>
-											<span><%= messages[i].review %></span>
-					            <span><%= messages[i].thumbUp -= messages[i].thumbDown %></span>
-					            <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-					            <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-					            <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+										<li>
+					          <% for(var i=0; i< orders.length; i++) {%>
+					            <span><%= orders[i].name%></span>
+					            <span><%= orders[i].email %></span>
+											<span><%= orders[i].review %></span>
+											<span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+											<span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+											<span><i class="fa fa-trash" aria-hidden="true"></i></span>
 					          </li>
 					          <% } %>
 
 					        </ul>
 								</div>
 							</section>
-
 					</div>
 
 				<!-- Contact -->
@@ -142,7 +139,8 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="main.js"></script>
+			<script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
 
 	</body>
 </html>
