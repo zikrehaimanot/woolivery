@@ -1,4 +1,5 @@
 //Where CRUD is happening. Create, Result, Update, Delete
+const Resturant = require("./models/Resturant.js")
 module.exports = function(app, passport, db) {
 
   // normal routes ===============================================================
@@ -13,9 +14,13 @@ module.exports = function(app, passport, db) {
     //tells us what page to render in the dom
     res.render('profile.ejs');
   });
-  app.get('/generic', function(req, res) {
+  app.get('/generic', isLoggedIn, function(req, res) {
+    console.log(req.user);
+
     //tells us what page to render in the dom
-    res.render('generic.ejs');
+    res.render('generic.ejs',{
+      user: req.user
+    });
   });
   app.get('/homepage', function(req, res) {
     //tells us what page to render in the dom
@@ -61,8 +66,13 @@ module.exports = function(app, passport, db) {
     //tells us what page to render in the dom
     res.render('resturantPartner.ejs');
   });
-  app.get('/resturantSignUp', function(req, res) {
-    res.render('resturantSignUp.ejs');
+  app.get('/resturantSignUp', isLoggedIn, function(req, res) {
+
+
+
+    res.render('resturantSignUp.ejs', {
+        user : req.user
+    });
   });
   app.get('/resturantLogin', function(req, res) {
     res.render('resturantLogin.ejs');
@@ -94,15 +104,31 @@ module.exports = function(app, passport, db) {
         res.redirect('/');
     });
 
-// message board routes ===============================================================
-    //Create
-    app.post('/reviews', (req, res) => {
-      db.collection('orders').save({name: req.body.name, email: req.body.email, review: req.body.review}, (err, result) => {
-        if (err) return console.log(err)
+    app.post('/resturantPost', (req, res) => {
+      const newResturant = new Resturant({
+        resturantName: req.body.resturantName,
+        phoneNumber: req.body.phoneNumber,
+        street: req.body.street,
+        city : req.body.city,
+        state : req.body.state,
+        zipcode : req.body.zipcode,
+        ein : req.body.ein,
+        payPal : req.body.payPal,
+        menu: req.body.menu,
+        prices: req.body.prices,
+        createdBy : req.user._id
+     })
+     newResturant.save()
+     .then(resturant => {
+       console.log(resturant)
+     })
+
+    // (err, result) => {
+    //     if (err) return console.log(err)
         console.log('saved to database')
-        res.redirect('/reviews')
-      })
-    })
+        res.redirect('/resturantSignUp')
+      // }
+  })
 
     app.put('/orders', (req, res) => {
       db.collection('orders')
@@ -157,7 +183,7 @@ module.exports = function(app, passport, db) {
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/homepage', // redirect to the secure profile section
+            successRedirect : '/generic', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -170,7 +196,7 @@ module.exports = function(app, passport, db) {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/homepage', // redirect to the secure profile section
+            successRedirect : '/generic', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
