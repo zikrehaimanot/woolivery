@@ -12,6 +12,7 @@ var ResturantSchema = new Schema({
       type : Number,
       required : true,
     },
+    
     street       : {
       type : String,
       required: true,
