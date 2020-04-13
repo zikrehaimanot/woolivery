@@ -29,6 +29,9 @@
 							 <% if(user.local.purpose === "user"){ %>
 							 <li><a href="/resturantPartner">Resturants</a></li>
 							 <% } %>
+							 <% if(user.local.purpose === "driver"){ %>
+							<li><a href="/order">Orders</a></li>
+							<% } %>
 						 </ul>
 					 </nav>
 					</header>

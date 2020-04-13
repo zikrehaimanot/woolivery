@@ -66,14 +66,25 @@ module.exports = function(app, passport, db) {
   app.get('/driverLogin', function(req, res) {
     res.render('driverLogin.ejs');
   });
+//   app.get('/', (req, res) => {
+//   //console.log(db)
+//   db.collection('messages').find().toArray((err, result) => {
+//     if (err) return console.log(err)
+//     res.render('index.ejs', {messages: result})
+//   })
+// })
+
+
   app.get('/resturantPartner', function(req, res) {
-    //tells us what page to render in the dom
-    res.render('resturantPartner.ejs');
+   db.collection('resturants').find().toArray((err, result) => {
+     if (err) return console.log(err)
+     res.render('resturantPartner.ejs',{results: result});
   });
+});
+
+
+
   app.get('/resturantSignUp', isLoggedIn, function(req, res) {
-
-
-
     res.render('resturantSignUp.ejs', {
         user : req.user
     });
@@ -109,6 +120,7 @@ module.exports = function(app, passport, db) {
     });
 
     app.post('/resturantPost', (req, res) => {
+       console.log(req.body);
       const newResturant = new Resturant({
         resturantName: req.body.resturantName,
         phoneNumber: req.body.phoneNumber,
