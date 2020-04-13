@@ -42,6 +42,10 @@ module.exports = function(app, passport, db) {
     //tells us what page to render in the dom
     res.render('order.ejs');
   });
+  app.get('/orderNow', function(req, res) {
+    //tells us what page to render in the dom
+    res.render('orderNow.ejs');
+  });
   app.get('/landing', function(req, res) {
     //tells us what page to render in the dom
     res.render('landing.ejs');
@@ -121,6 +125,7 @@ module.exports = function(app, passport, db) {
      newResturant.save()
      .then(resturant => {
        console.log(resturant)
+
      })
 
     // (err, result) => {

@@ -13,15 +13,22 @@
 			<div id="wrapper">
 
 					<header id="header">
-						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+						<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
 						<nav>
 						 <ul class="links">
-							 <li><a href="index.html">Home</a></li>
+							 <li><a href="/generic">Home</a></li>
+							 <% if(user.local.purpose === "user"){ %>
+							 <li><a href="/orderNow">Order Now</a></li>
+							 <% } %>
+							 <% if(user.local.purpose === "owner"){ %>
 							 <li><a href="/order">Orders</a></li>
+							 <% } %>
 							 <% if(user.local.purpose === "owner"){ %>
 							 <li><a href="/resturantSignUp">Sign Up Resturants</a></li>
 							 <% } %>
-							 <li><a href="elements.html">Elements</a></li>
+							 <% if(user.local.purpose === "user"){ %>
+							 <li><a href="/resturantPartner">Resturants</a></li>
+							 <% } %>
 						 </ul>
 					 </nav>
 					</header>
@@ -115,13 +122,13 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+			<!-- <script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script> -->
 
 	</body>
 </html>
