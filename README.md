@@ -1,3 +1,3 @@
 # woolivery
 
-demo day project
+demo day project. full stack app
