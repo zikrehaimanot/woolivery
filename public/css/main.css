@@ -294,7 +294,10 @@ input, select, textarea {
 	.align-right {
 		text-align: right;
 	}
-
+	/* THIS IS THE DISPLAY NONE BUTTON */
+.hide{
+	display: none;
+}
 /* Row */
 
 	.row {
@@ -1905,6 +1908,7 @@ input, select, textarea {
 	input[type="tel"],
 	input[type="search"],
 	input[type="url"],
+	input[type="number"],
 	select,
 	textarea {
 		-moz-appearance: none;
@@ -1928,6 +1932,7 @@ input, select, textarea {
 		input[type="tel"]:invalid,
 		input[type="search"]:invalid,
 		input[type="url"]:invalid,
+		input[type="number"]:invalid,
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -1939,6 +1944,7 @@ input, select, textarea {
 		input[type="tel"]:focus,
 		input[type="search"]:focus,
 		input[type="url"]:focus,
+		input[type="number"]:focus,
 		select:focus,
 		textarea:focus {
 			border-color: #9bf1ff;
@@ -1974,6 +1980,7 @@ input, select, textarea {
 	input[type="tel"],
 	input[type="search"],
 	input[type="url"],
+	input[type="number"],
 	select {
 		height: 2.75em;
 	}
@@ -3950,3 +3957,41 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+.aToButton{
+	background-color: white;
+	color: #242A41;
+	padding: 0.4em;
+	font-size: 28px;
+	border-radius: 10px;
+	margin-left: 1%;
+	text-decoration: none;
+}
+.aToButton:hover{
+	background-color: #242A41;
+}
+.hide{
+	display: none;
+}
+.container{
+	display: flex;
+	justify-content: center;
+}
+.containerPage{
+	max-width: 40em;
+	margin: 2em auto;
+}
+.createElement{
+	margin: 2em 0;
+}
+.home{
+	float: right;
+	margin-right: 5em;
+	text-decoration: none;
+	border-bottom: none;
+}
+.holdsOrdersDiv{
+	margin-bottom: 2em;
+}
+.holdsOrder{
+	margin-bottom: 2em;
+}

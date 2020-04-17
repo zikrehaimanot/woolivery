@@ -42,6 +42,7 @@ module.exports = function(passport) {
         stateField    : 'state',
         zipcodeField  : 'zipcode',
         purposeField  : 'purpose',
+        numberField   : 'number',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) {
@@ -70,6 +71,7 @@ module.exports = function(passport) {
                 newUser.local.state    = req.body.state;
                 newUser.local.zipcode  = req.body.zipcode;
                 newUser.local.purpose  = req.body.purpose;
+                newUser.local.number   = req.body.number;
 				// save the user
                 newUser.save(function(err) {
                     if (err)

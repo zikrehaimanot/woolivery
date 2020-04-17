@@ -2,6 +2,7 @@
 // setting up the variables and using require to pull the packages that will help us connect to the browser?
 // set up ======================================================================
 // get all the tools we need
+
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 8080; //localhost url, able to change if need be
@@ -20,14 +21,18 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
 var configDB = require('./config/database.js'); // this is the file you need to go to connect to your own personal server
-
+var ObjectId = require('mongodb').ObjectID
 var db
-
+var Nexmo = require('nexmo')
+const nexmo = new Nexmo({
+  apiKey: '1a7cfdf4',
+  apiSecret: 'rcbootcamp2019Ben710'
+})
 // configuration ===============================================================
 mongoose.connect(configDB.url, (err, database) => { // .connect is a method used for mongoDB to connect to your database
   if (err) return console.log(err)
   db = database
-  require('./app/routes.js')(app, passport, db);
+  require('./app/routes.js')(app, passport, db, ObjectId, nexmo);
 }); // connect to our database
 
 //app.listen(port, () => {

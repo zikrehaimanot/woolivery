@@ -1,110 +1,88 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>WooLivery</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+	<title>WooLivery</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="css/main.css" />
+	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+<section class="containerPage">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
-						<nav>
-							<ul class="links">
-								<li><a href="generic">Home</a></li>
-								<!-- <li><a href="landing.html">Landing</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li> -->
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+			<nav>
+				<ul class="links">
+					<!-- <li><a href="generic">Home</a></li> -->
+				</ul>
+			</nav>
+		</header>
+
+		<div id="main" class="alt">
+			<p class="userId hide" > <%= user._id%> </p>
+
+			<!-- Past Orders -->
+
+			<section id="contact">
+
+				<!-- Resturants To Order From -->
+				<section class="split">
+					<% for(var i=0; i<results.length; i++){%>
+						<section>
+							<h2>Resturant Name</h2>
+							<span><%=results[i].resturantName %></span>
+						</section>
+						<section>
+							<h2>Menu Items</h2>
+							<ul>
+								<% for(var j=0; j<results[i].menu.length; j++){%>
+									<li class="resItem">
+										<span><%= results[i].menu[j].itemName%></span>
+										<span> <%=results[i].menu[j].price%></span>
+										<span><%=results[i].createdBy %></span>
+										<span><%=results[i]._id %></span>
+
+									</li>
+									<% } %>
+								</ul>
+							</section>
+							<% } %>
+
+						</section>
+						<section>
+
+							<ul class="cart">
 							</ul>
-						</nav>
-					</header>
-
-					<div id="main" class="alt">
-
-						<!-- One -->
-							<!-- <section id="one">
-								<div class="inner">
-									<header class="major">
-										<h1>Place Order</h1>
-									</header>
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-								</div>
-							</section>
-
-					</div> -->
-
-				<!-- Past Orders -->
-
-					<section id="contact">
-						<div class="inner">
-							<section>
-								
-							</section>
-
-
-					<!-- Resturants To Order From -->
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
-
+							<p class="displayPrice"></p>
+							<button type="submit" name="button" class="hide checkout">CheckOut</button>
+							<button type="submit" name="button" class="clearCart"> Clear Cart</button>
+						</section>
+					</div>
+				</section>
+</section>
 				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
+						<ul class="copyright">
+						</ul>
+					</div>
+				</footer>
 			</div>
 
-		<!-- Scripts -->
-			<!-- <script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> -->
+			<script src="orderNow.js" ></script>
 
-	</body>
-</html>
+		</body>
+		</html>

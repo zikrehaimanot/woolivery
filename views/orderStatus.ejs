@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>WooLivery</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<section >
+
+				<% var status = "waiting for restaurant to accept your order" %>
+
+				<% if(orders.accepted === true && orders.completed === false){ %>
+				<%	status = "Resturant accepted your order"%>
+			  <%	} %>
+
+				<% if(orders.completed === true && orders.pickedUp === false){ %>
+				<%	status = "Order is waiting to be  picked-up"%>
+				<%	} %>
+
+				<% if(orders.picked === true && orders.delivered === false){ %>
+				<%	status = "order is picked up and on its way, TIP BIG BITCHESS"%>
+				<%	} %>
+
+				<% if(orders.delivered === true){ %>
+				<%	status = "foods here fuckers" %>
+				<%	} %>
+
+				<%= status %>
+				</section>
+
+
+			</div>
+			<script type="text/javascript" src="order.js"> </script>
+	</body>
+</html>

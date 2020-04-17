@@ -4,12 +4,15 @@
 		<title>WooLivery</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- <link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript> -->
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-		<h1>Post Resturant</h1>
+
 		<!-- Wrapper -->
+		<a href="/generic" class="home">Home</a>
+<section class="containerPage">
+	<h1>Create Resturant Form</h1>
 			<div id="wrapper">
 				<form class="signupRes" action="/resturantPost" method="POST">
 					<div class="form-group">
@@ -44,6 +47,7 @@
 							<label>payPal Info</label>
 							<input type="text" class="form-control" name="payPal">
 					</div>
+					<hr>
 					<div class="form-group" >
 							<label class="cloneLabel">Menu Item</label>
 							<input type="text" class="form-control" name="menu">
@@ -57,11 +61,8 @@
 					<button type="submit" name="button">Submit</button>
 				</form>
 
-						</div>
-					</section>
-
-
 			</div>
+	</section>
 			<script src="main.js"></script>
 	</body>
 </html>

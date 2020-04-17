@@ -12,8 +12,8 @@ var ResturantSchema = new Schema({
       type : Number,
       required : true,
     },
-    
-    street       : {
+
+    street  : {
       type : String,
       required: true,
     },
@@ -38,15 +38,11 @@ var ResturantSchema = new Schema({
       required : true,
     },
     menu : {
-      type: [String],
-      required : true,
-    },
-    prices : {
-      type: [Number],
+      type:[{ itemName: String, price: Number }],
       required : true,
     },
     createdBy : {
-      type : Schema.Types.ObjectId,
+      type : String,
       required : true,
     }
 });
