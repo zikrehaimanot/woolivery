@@ -3995,3 +3995,6 @@ input, select, textarea {
 .holdsOrder{
 	margin-bottom: 2em;
 }
+.displayNone{
+	display: none;
+}

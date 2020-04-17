@@ -28,16 +28,16 @@
 					</div>
 				<!-- Contact -->
 					<h2 class="resName"></h2>
-					<input type="text" name="" disabled value= "<%= user._id%>" id="driverId" >
+					<input type="text" name="" disabled value= "<%= user._id%>" id="driverId">
 			 <section class="holdsOrder">
 
 				<%  for(var i = 0 ; i < orders.length; i++){ %>
 					<% if(orders[i].completed === true && orders[i].driverAccepted === false) {%>
 					<ul>
-						<li><%= orders[i]._id %></li>
+						<li class="hide"><%= orders[i]._id %></li>
 						<li><%= orders[i].orderedItem %></li>
 						<li><%= orders[i].totalPrice %></li>
-						<li><%= orders[i].driverAccepted %></li>
+						<li class="hide"><%= orders[i].driverAccepted %></li>
 
 					</ul>
 					<a  href="#"class="acceptOrder">Accept</a>
