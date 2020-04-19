@@ -21,15 +21,15 @@
 			  <%	} %>
 
 				<% if(orders.completed === true && orders.pickedUp === false){ %>
-				<%	status = "Order is waiting to be  picked-up"%>
+				<%	status = "Order is ready and is waiting to be picked-up"%>
 				<%	} %>
 
-				<% if(orders.picked === true && orders.delivered === false){ %>
-				<%	status = "order is picked up and on its way, TIP BIG BITCHESS"%>
+				<% if(orders.pickedUp === true && orders.delivered === false){ %>
+				<%	status = "order is picked up and on its way,Tip Well Please"%>
 				<%	} %>
 
 				<% if(orders.delivered === true){ %>
-				<%	status = "foods here fuckers" %>
+				<%	status = "Driver is here" %>
 				<%	} %>
 
 				<%= status %>

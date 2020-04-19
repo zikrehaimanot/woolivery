@@ -270,7 +270,7 @@ app.put('/completeOrder', isLoggedIn, function(req, res) {
           customerNumber = '1' + customer[0].local.number
           customerName = customer[0].local.email
           // console.log(customerName, customerNumber);
-          var msg = "Your Order Is Declined"
+          var msg = "The Resturant Declined Your Order"
           nexmo.message.sendSms(
              '12012750754', customerNumber, msg, {
               type: 'unicode'
@@ -350,7 +350,7 @@ app.put('/acceptedOrderDriver', isLoggedIn, function(req, res) {
       if (err) return console.log(err)
       // console.log(customer);
       customerNumber = '1' + customer[0].local.number
-      var msg = "Your Driver has the food..tip bitchesssss"
+      var msg = "Your Driver Has Your Food, Tip Well Please"
       nexmo.message.sendSms(
          '12012750754', customerNumber, msg, {
           type: 'unicode'
@@ -389,7 +389,7 @@ app.put('/acceptedOrderDriver', isLoggedIn, function(req, res) {
         if (err) return console.log(err)
         // console.log(customer);
         customerNumber = '1' + customer[0].local.number
-        var msg = "food's here muthafucka"
+        var msg = "Your Driver Is Outside"
         nexmo.message.sendSms(
            '12012750754', customerNumber, msg, {
             type: 'unicode'
