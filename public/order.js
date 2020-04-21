@@ -15,7 +15,7 @@ Array.from(acceptOrder).forEach(button =>{
         body: JSON.stringify({
 
            'orderId'  : orderId,
-          // 'customerId': customerId,
+           'customerId': customerId,
 
         })
       })
@@ -34,7 +34,6 @@ Array.from(completeOrder).forEach(c =>{
     // var totalPrice = this.parentNode.childNodes[1].childNodes[3].innerText
     // console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
     // console.log(this.parentNode.childNodes[1].childNodes[3].innerText);
-
     var customerId = this.parentNode.childNodes[1].childNodes[3].innerText
     var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
     console.log(customerId, orderId);
@@ -49,7 +48,7 @@ Array.from(completeOrder).forEach(c =>{
         body: JSON.stringify({
 
          'orderId'  : orderId,
-         // 'customerId': customerId,
+        'customerId': customerId,
 
 
         })

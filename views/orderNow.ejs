@@ -18,7 +18,7 @@
 	</header>
 	<section class="containerPageOrderNow">
 		<!-- <div id="main" class="alt"> -->
-		<p class="userId hide"  class="displayNone"> <%= user._id%> </p>
+		<p class="userId hide"  class="displayNone"><%=user._id%></p>
 		<section class="split">
 			<% for(var i=0; i<results.length; i++){%>
 				<section>
@@ -29,8 +29,8 @@
 					<ul>
 						<% for(var j=0; j<results[i].menu.length; j++){%>
 							<li class="resItem">
-								<span><%= results[i].menu[j].itemName%></span>
-								<span> <%=results[i].menu[j].price%></span>
+								<span class="styleMenuItem"><%= results[i].menu[j].itemName%></span>
+								<span class="styleMenuItem"> <%=results[i].menu[j].price%></span>
 								<span class="hide"><%=results[i].createdBy %></span>
 								<span class="hide"><%=results[i]._id %></span>
 							</li>

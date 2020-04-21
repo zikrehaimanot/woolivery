@@ -4,7 +4,6 @@ var delivered = document.querySelectorAll('.delivered')
 Array.from(pickedUp).forEach(button =>{
   button.addEventListener('click',function (event){
     var driverId = document.querySelector('.driverId').innerHTML
-    console.log(driverId,"shittty");
     var driverReason = document.getElementById('driverReason').value
     console.log(driverReason);
     // console.log(this.parentNode.childNodes[1].childNodes[1].innerText);

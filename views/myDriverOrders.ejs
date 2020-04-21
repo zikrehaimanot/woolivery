@@ -34,7 +34,7 @@
 			 <section>
 
 				<%  for(var i = 0 ; i < orders.length; i++){ %>
-				<% if(orders[i].accepted === true && orders[i].driverId == user._id) {%>
+				<% if(orders[i].driverAccepted === true && orders[i].driverId == user._id && orders[i].delivered === false) {%>
 				<div>
 					<ul>
 						<li><%= orders[i]._id %></li>

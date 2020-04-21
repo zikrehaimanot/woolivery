@@ -3954,6 +3954,13 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+/* CONATINAER STYLING FOR PAGES */
+.containerPage{
+	max-width: 40em;
+	margin: 2em auto;
+}
+/* ORDER CSS FOR RESTURANTS */
 .aToButton{
 	background-color: white;
 	color: #242A41;
@@ -3969,41 +3976,28 @@ input, select, textarea {
 .hide{
 	display: none;
 }
-.container{
+/* .container{
 	display: flex;
 	justify-content: center;
-}
-.containerPage{
-	max-width: 40em;
-	margin: 2em auto;
-}
-.createElement{
-	margin: 2em 0;
-}
-.home{
-	float: right;
-	margin-right: 5em;
-	text-decoration: none;
-	border-bottom: none;
-}
+} */
+
 .holdsOrdersDiv{
 	margin-bottom: 2em;
 	margin-left: 4em;
 	margin-top: 6em;
 }
-.holdsOrder{
-	margin-bottom: 2em;
+
+.footerContainer{
+	margin-top: 30em;
+	margin-left: 30em;
 }
-.listElements{
-	display: none;
+.resName{
+	margin-left: 3em;
 }
-.checkoutContainer{
-	max-width: 40em;
-	margin: 2em auto;
-}
-.checkOrderStatus{
-	margin-left: 2em;
-	font-size: 2em;
+
+/* RANDOM STYLING NEED TO PLLACE IN CORRECT SPOT */
+.createElement{
+	margin: 2em 0;
 }
 .containerPageOrderStatus{
 	max-width: 40em;
@@ -4016,14 +4010,27 @@ input, select, textarea {
 	margin-left: 15em;
 	margin-top: 10em;
 }
-.footerContainer{
-	margin-top: 30em;
-	margin-left: 30em;
+.checkoutContainer{
+	max-width: 40em;
+	margin: 2em auto;
 }
-.resName{
-	margin-left: 3em;
+.checkOrderStatus{
+	margin-left: 2em;
+	font-size: 2em;
 }
 
+.holdsOrder{
+	margin-bottom: 2em;
+}
+.listElements{
+	display: none;
+}
+.home{
+	float: right;
+	margin-right: 5em;
+	text-decoration: none;
+	border-bottom: none;
+}
 
 /* Order Now CSS  */
 /* THIS IS THE DISPLAY NONE BUTTON */
@@ -4059,10 +4066,16 @@ input, select, textarea {
 .cart{
 	font-size: 28px;
 }
-p{
+.displayPrice{
 	font-size: 30px;
 	margin-left: 1em;
 }
 .hideSpan{
-	display: none
+	display: none;
 }
+.styleMenuItem{
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* RESTURANT PARTNER */

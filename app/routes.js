@@ -163,7 +163,8 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
       delivered: req.body.delivered,
       pickedUp : req.body.pickedUp,
       driverId : req.body.driverId,
-      driverAccepted : req.body.driverAccepted
+      driverAccepted : req.body.driverAccepted,
+      reason : req.body.reason,
     },(err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
@@ -173,27 +174,27 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
   })
   // RESTURANT ORDER ACCEPTED
   app.put('/acceptedOrder', isLoggedIn, function(req, res) {
-    var orderId = ObjectId(req.body.orderId)
-    // var customerId = ObjectId(req.body.customerId)
-    // var resName = req.body.resName
-    // var customerNumber;
-    //
-    // db.collection('users').find({
-    //   "_id": customerId
-    // }).toArray((err, customer) => {
-    //   if (err) return console.log(err)
-    //   // console.log(customer);
-    //   customerNumber = '1' + customer[0].local.number
-    //   var msg = "Restaurant Working On Order"
-    //   nexmo.message.sendSms(
-    //     '12012750754', customerNumber, msg, {
-    //       type: 'unicode'
-    //     },
-    //     (err, result) => {
-    //       if (err) return console.log(err)
-    //       console.log('sent text')
-    //     })
-    //   })
+    var orderId = ObjectId(req.body.orderId.trim());
+    var customerId = ObjectId(req.body.customerId.trim());
+    var resName = req.body.resName
+    var customerNumber;
+
+    db.collection('users').find({
+      "_id": customerId
+    }).toArray((err, customer) => {
+      if (err) return console.log(err)
+      // console.log(customer);
+      customerNumber = '1' + customer[0].local.number
+      var msg = "Restaurant Working On Order"
+      nexmo.message.sendSms(
+        '12012750754', customerNumber, msg, {
+          type: 'unicode'
+        },
+        (err, result) => {
+          if (err) return console.log(err)
+          console.log('sent text')
+        })
+      })
       db.collection('orders')
       .findOneAndUpdate({
         _id: orderId
@@ -214,30 +215,31 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
 
     // RESTURANT COMPLETE ORDER
 
+
     app.put('/completeOrder', isLoggedIn, function(req, res) {
-      var orderId = ObjectId(req.body.orderId)
-//       var customerId = req.body.customerId
-//       var resName = req.body.resName
-//       var customerNumber;
-// // db.products.find({"_id": ObjectId(customer)})
-//
-//       db.collection('users').find({
-//         "_id": customerId
-//       }).toArray((err, customer) => {
-//         console.log(err, customer);
-//         if (err) return console.log(err)
-//         console.log(customer);
-//         customerNumber = '1' + customer[0].local.number
-//         var msg = "Your Order Is Completed"
-//         nexmo.message.sendSms(
-//           '12012750754', customerNumber, msg, {
-//             type: 'unicode'
-//           },
-//           (err, result) => {
-//             if (err) return console.log(err)
-//             console.log('sent text')
-//           })
-//         })
+      var orderId = ObjectId(req.body.orderId.trim());
+      var customerId = ObjectId(req.body.customerId.trim());
+      var resName = req.body.resName
+      var customerNumber;
+
+      db.collection('users').find({
+        "_id": customerId
+      }).toArray((err, customer) => {
+        console.log(err, customer);
+        if (err) return console.log(err)
+        console.log(customer);
+        customerNumber = '1' + customer[0].local.number
+        var msg = "Your Order Is Completed"
+        nexmo.message.sendSms(
+          '12012750754', customerNumber, msg, {
+            type: 'unicode'
+          },
+          (err, result) => {
+            if (err) return console.log(err)
+            console.log('sent text')
+          })
+        })
+
         db.collection('orders')
         .findOneAndUpdate({
           _id: orderId
@@ -259,30 +261,30 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
       // RESTURANT ORDER DECLINED
 
       app.delete('/declineOrder', isLoggedIn, function(req, res) {
-        var orderId = ObjectId(req.body.orderId)
-        // var customerId = ObjectId(req.body.customerId)
-        // // var resName = req.body.resName
-        // var customerNumber = "16176157263"
-        // // var customerName = "Z"
-        // db.collection('users').find({
-        //   "_id": customerId
-        // }).toArray((err, customer) => {
-        //   if (err) return console.log(err)
-        //   // console.log(customer);
-        //   customerNumber = '1' + customer[0].local.number
-        //   customerName = customer[0].local.email
-        //   // console.log(customerName, customerNumber);
-        //   var msg = "The Resturant Declined Your Order"
-        //   nexmo.message.sendSms(
-        //     '12012750754', customerNumber, msg, {
-        //       type: 'unicode'
-        //     },
-        //     (err, result) => {
-        //       if (err) return console.log(err)
-        //       console.log('sent text')
-        //     })
-        //
-        //   })
+        var orderId = ObjectId(req.body.orderId.trim());
+        var customerId = ObjectId(req.body.customerId.trim());
+        // var resName = req.body.resName
+        var customerNumber = "16176157263"
+        // var customerName = "Z"
+        db.collection('users').find({
+          "_id": customerId
+        }).toArray((err, customer) => {
+          if (err) return console.log(err)
+          // console.log(customer);
+          customerNumber = '1' + customer[0].local.number
+          customerName = customer[0].local.email
+          // console.log(customerName, customerNumber);
+          var msg = "The Resturant Declined Your Order"
+          nexmo.message.sendSms(
+            '12012750754', customerNumber, msg, {
+              type: 'unicode'
+            },
+            (err, result) => {
+              if (err) return console.log(err)
+              console.log('sent text')
+            })
+
+          })
           // console.log(req.body.orderId)
           // console.log(req.body.resId, req.body.orderedItem,req.body.totalPrice,req.body.customerId, req.body.accepted, req.body.completed, req.body.delivered, req.body.orderId)
           db.collection('orders')
@@ -295,13 +297,13 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
         // DRIVER ORDER ACCEPTED
 
         app.put('/acceptedOrderDriver', isLoggedIn, function(req, res) {
-          var orderId = ObjectId(req.body.orderId)
-          var driverId = req.body.driverId
-          // var customerId = req.body.customerId
+          var orderId = ObjectId(req.body.orderId);
+          var driverId = req.body.driverId;
+          // var customerId = ObjectId(req.body.customerId.trim());
           // var resName = req.body.resName
           // var customerNumber = "16176157263"
           // var customerName = "Z"
-          //
+
           // db.collection('users').find({
           //   "_id": customerId
           // }).toArray((err, customer) => {
@@ -310,7 +312,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
           //   customerNumber = '1' + customer[0].local.number
           //   customerName = customer[0].local.email
           //   console.log(customerName, customerNumber);
-          //   var msg = "Your Order Is Ready"
+          //   var msg = "Your Order Is About To Be Picked Up"
           //   nexmo.message.sendSms(
           //      '12012750754', customerNumber, msg, {
           //       type: 'unicode'
@@ -342,87 +344,49 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
         // DRIVER PICKED UP FOOD
 
         app.put('/pickedUp', isLoggedIn, function(req, res) {
-
-          var orderId = ObjectId(req.body.orderId)
-          // var customerId = ObjectId(req.body.customerId)
+          var orderId = ObjectId(req.body.orderId.trim());
+          var customerId = ObjectId(req.body.customerId.trim());
           var reason = req.body.reason
           var driverId = ObjectId(req.body.driverId)
-            console.log(req.body);
 
-          // db.collection('users').find({
-          //   "_id": customerId
-          // }).toArray((err, customer) => {
-          //   if (err) return console.log(err)
-          //   // console.log(customer);
-          //   customerNumber = '1' + customer[0].local.number
-          //   var msg = "Your Driver Has Your Food, Tip Well Please"
-          //   nexmo.message.sendSms(
-          //     '12012750754', customerNumber, msg, {
-          //       type: 'unicode'
-          //     },
-          //     (err, result) => {
-          //       if (err) return console.log(err)
-          //       console.log('sent text')
-          //     })
-          //   })
-          db.collection('users')
-          .findOneAndUpdate({
-            _id: driverId
-          },{
-            $set:{
-              reason : reason
-            }
-          }, (err, result) => {
-            if (err) return res.send(err)
-            res.send(result)
-          })
-
-
-            // db.collection('orders')
-            // .findOneAndUpdate({
-            //   _id: orderId
-            // }, {
-            //   $set: {
-            //     pickedUp: true
-            //   }
-            // }, {
-            //   sort: {
-            //     _id: -1,
-            //   },
-            //   upsert: false
-            // }, (err, result) => {
-            //   if (err) return res.send(err)
-            //   res.send(result)
-            // })
+          var userQuery = db.collection('users').find({
+            "_id": customerId
           });
-
-          app.put('/delivered', isLoggedIn, function(req, res) {
-            var orderId = ObjectId(req.body.orderId)
-            var customerId = ObjectId(req.body.customerId)
-            var customerNumber;
-
-            db.collection('users').find({
-              "_id": customerId
-            }).toArray((err, customer) => {
-              if (err) return console.log(err)
-              // console.log(customer);
-              customerNumber = '1' + customer[0].local.number
-              var msg = "Your Driver Is Outside"
-              nexmo.message.sendSms(
-                '12012750754', customerNumber, msg, {
-                  type: 'unicode'
-                },
-                (err, result) => {
-                  if (err) return console.log(err)
-                  console.log('sent text')
-                })
+          userQuery.toArray((err, customer) => {
+            if (err) return console.log(err)
+            // console.log(customer);
+            customerNumber = '1' + customer[0].local.number
+            var msg = "Your Driver Has Your Food, Tip Well Please"
+            nexmo.message.sendSms(
+              '12012750754', customerNumber, msg, {
+                type: 'unicode'
+              },
+              (err, result) => {
+                if (err) return console.log(err)
+                console.log('sent text')
               })
+            })
+
+              db.collection('users')
+              .findOneAndUpdate({
+                _id: driverId
+              },{
+                $set:{
+                  reason : reason
+                }
+              }, (err, result) => {
+                console.log("gothere1");
+                if (err) return res.send(err)
+                res.send(result)
+              })
+
+              console.log("gothere2");
               db.collection('orders')
               .findOneAndUpdate({
                 _id: orderId
               }, {
                 $set: {
-                  delivered: true
+                  pickedUp: true
                 }
               }, {
                 sort: {
@@ -430,74 +394,118 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
                 },
                 upsert: false
               }, (err, result) => {
+                console.log("gothere3");
                 if (err) return res.send(err)
+                console.log("gothere4");
                 res.send(result)
               })
-            });
+
+          })
 
 
-            // app.delete('/orders', (req, res) => {
-            //   //deletemethod:Deletes a single document based on the filter and sort criteria, returning the deleted document https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndDelete/
-            //   db.collection('orders').findOneAndDelete({name: req.body.name, email: req.body.email, review: req.body.review}, (err, result) => {//looks at messages collection,s finds and deletes.
-            //     if (err) return res.send(500, err)//if error, send error
-            //     res.send('Message deleted!')
-            //   })
-            // })
 
-            //Authenticates the user and makes sure user is logged in and only on their account  =============================================================================
-            // AUTHENTICATE (FIRST LOGIN) ==================================================
-            // =============================================================================
+            app.put('/delivered', isLoggedIn, function(req, res) {
+              var orderId = ObjectId(req.body.orderId.trim());
+              var customerId = ObjectId(req.body.customerId.trim());
+              var customerNumber;
 
-            // locally --------------------------------
-            // LOGIN ===============================
-            // show the login form
-            app.get('/login', function(req, res) {
-              res.render('login.ejs', { message: req.flash('loginMessage') });
-            });
-
-            // process the login form
-            app.post('/login', passport.authenticate('local-login', {
-              successRedirect : '/generic', // redirect to the secure profile section
-              failureRedirect : '/login', // redirect back to the signup page if there is an error
-              failureFlash : true // allow flash messages
-            }));
-
-            // SIGNUP =================================
-            // show the signup form
-            app.get('/signup', function(req, res) {
-              res.render('signup.ejs', { message: req.flash('signupMessage') });
-            });
-
-            // process the signup form
-            app.post('/signup', passport.authenticate('local-signup', {
-              successRedirect : '/generic', // redirect to the secure profile section
-              failureRedirect : '/signup', // redirect back to the signup page if there is an error
-              failureFlash : true // allow flash messages
-            }));
-
-            // =============================================================================
-            // UNLINK ACCOUNTS =============================================================
-            // =============================================================================
-            // used to unlink accounts. for social accounts, just remove the token
-            // for local account, remove email and password
-            // user account will stay active in case they want to reconnect in the future
-
-            // local -----------------------------------
-            app.get('/unlink/local', isLoggedIn, function(req, res) {
-              var user            = req.user;
-              user.local.email    = undefined;
-              user.local.password = undefined;
-              user.save(function(err) {
-                res.redirect('/profile');
+              db.collection('users').find({
+                "_id": customerId
+              }).toArray((err, customer) => {
+                if (err) return console.log(err)
+                // console.log(customer);
+                customerNumber = '1' + customer[0].local.number
+                var msg = "Your Driver Is Outside"
+                nexmo.message.sendSms(
+                  '12012750754', customerNumber, msg, {
+                    type: 'unicode'
+                  },
+                  (err, result) => {
+                    if (err) return console.log(err)
+                    console.log('sent text')
+                  })
+                })
+                db.collection('orders')
+                .findOneAndUpdate({
+                  _id: orderId
+                }, {
+                  $set: {
+                    delivered: true
+                  }
+                }, {
+                  sort: {
+                    _id: -1,
+                  },
+                  upsert: false
+                }, (err, result) => {
+                  if (err) return res.send(err)
+                  res.send(result)
+                })
               });
-            });
 
-          };
 
-          // route middleware to ensure user is logged in
-          function isLoggedIn(req, res, next) {
-            if (req.isAuthenticated())
-            return next();
+              // app.delete('/orders', (req, res) => {
+              //   //deletemethod:Deletes a single document based on the filter and sort criteria, returning the deleted document https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndDelete/
+              //   db.collection('orders').findOneAndDelete({name: req.body.name, email: req.body.email, review: req.body.review}, (err, result) => {//looks at messages collection,s finds and deletes.
+              //     if (err) return res.send(500, err)//if error, send error
+              //     res.send('Message deleted!')
+              //   })
+              // })
 
-            res.redirect('/');
-          }
+              //Authenticates the user and makes sure user is logged in and only on their account  =============================================================================
+              // AUTHENTICATE (FIRST LOGIN) ==================================================
+              // =============================================================================
+
+              // locally --------------------------------
+              // LOGIN ===============================
+              // show the login form
+              app.get('/login', function(req, res) {
+                res.render('login.ejs', { message: req.flash('loginMessage') });
+              });
+
+              // process the login form
+              app.post('/login', passport.authenticate('local-login', {
+                successRedirect : '/generic', // redirect to the secure profile section
+                failureRedirect : '/login', // redirect back to the signup page if there is an error
+                failureFlash : true // allow flash messages
+              }));
+
+              // SIGNUP =================================
+              // show the signup form
+              app.get('/signup', function(req, res) {
+                res.render('signup.ejs', { message: req.flash('signupMessage') });
+              });
+
+              // process the signup form
+              app.post('/signup', passport.authenticate('local-signup', {
+                successRedirect : '/generic', // redirect to the secure profile section
+                failureRedirect : '/signup', // redirect back to the signup page if there is an error
+                failureFlash : true // allow flash messages
+              }));
+
+              // =============================================================================
+              // UNLINK ACCOUNTS =============================================================
+              // =============================================================================
+              // used to unlink accounts. for social accounts, just remove the token
+              // for local account, remove email and password
+              // user account will stay active in case they want to reconnect in the future
+
+              // local -----------------------------------
+              app.get('/unlink/local', isLoggedIn, function(req, res) {
+                var user            = req.user;
+                user.local.email    = undefined;
+                user.local.password = undefined;
+                user.save(function(err) {
+                  res.redirect('/profile');
+                });
+              });
+
+            };
+
+            // route middleware to ensure user is logged in
+            function isLoggedIn(req, res, next) {
+              if (req.isAuthenticated())
+              return next();
+
+              res.redirect('/');
+            }

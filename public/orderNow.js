@@ -73,6 +73,7 @@ checkout.addEventListener('click', () =>{
       'pickedUp': false,
       'driverId': null,
       'driverAccepted': false,
+      'reason' : null,
     })
   })
   .then(response => {
