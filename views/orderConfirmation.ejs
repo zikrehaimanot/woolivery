@@ -8,6 +8,8 @@
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+		<section class="containerPageOrderStatus">
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -16,26 +18,29 @@
 				<% for(var i=0; i< orders.length; i++){%>
 				<% var customerId = " " + orders[i].customer + " " %>
 				<% if (orders[i].delivered == false) { %>
-				<a href="/orderStatus/<%=orders[i]._id%>">Check Order Status</a>
+					<ul>
+				 		<li><a href="/orderStatus/<%=orders[i]._id%>" class="checkOrderStatus">Check Order Status</a></li>
+				 	</ul>
 				<% } else { %>
 				<% } %>
 				<% } %>
 				<p class="hide"> <%= user._id %> </p>
+				<section>
+					<p>thank you for ordering message</p>
+				</section>
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
 								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 							</ul>
 							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</footer>
 
 			</div>
+		</section>
 	</body>
 </html>

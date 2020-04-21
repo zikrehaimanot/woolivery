@@ -10,11 +10,7 @@
 	<body class="is-preload">
 <section class="containerPage">
 
-
-		<!-- Wrapper -->
 			<div id="wrapper">
-
-				<!-- Header -->
 					<header id="header">
 						<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
 						<nav>
@@ -24,27 +20,24 @@
 						</nav>
 					</header>
 					</div>
-				<!-- Contact -->
+
 			<h2 class="resName">Orders For <%= resturants[0].resturantName %></h2>
-			 <!-- <section class="container"> -->
 
 				<%  for(var i = 0 ; i < orders.length; i++){ %>
 				<div class="holdsOrdersDiv">
 					<ul>
-
 						<li class="hide"><%= orders[i]._id %></li>
 						<li class="hide"><%= orders[i].customer %></li>
 						<li><strong>The Order:</strong> <%= orders[i].orderedItem%></li>
 						<li> <strong>Total Price:</strong> <%= orders[i].totalPrice%></li>
-
 					</ul>
-
 					<a  href="#"class="acceptOrder aToButton" >Accept</a>
 					<a href="#"class="declineOrder aToButton" >Decline</a>
 					<a  href="#"class="completeOrder aToButton" >Order Completed</a>
 				</div>
 				<% } %>
-			<!-- </section> -->
+</section>
+		<section class="footerContainer">
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
@@ -59,8 +52,10 @@
 						</div>
 					</footer>
 
-			</div>
-		</section>
+
+
+			</section>
+
 			<script type="text/javascript" src="order.js"> </script>
 	</body>
 </html>

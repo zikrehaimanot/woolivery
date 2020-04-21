@@ -27,16 +27,15 @@
 					</div>
 
 				<!-- Contact -->
-				<%= user._id%>
+				<h2 class="driverId"><%= user._id%></h2>
 
 					<h2 class="resName"> </h2>
+					<input type="text" name="" value="" placeholder="why I drive" id="driverReason">
 			 <section>
 
 				<%  for(var i = 0 ; i < orders.length; i++){ %>
-					<% if(orders[i].accepted === true && orders[i].driverId == user._id) {%>
-				<div class="">
-
-
+				<% if(orders[i].accepted === true && orders[i].driverId == user._id) {%>
+				<div>
 					<ul>
 						<li><%= orders[i]._id %></li>
 						<li><%= orders[i].customer %></li>
@@ -51,8 +50,7 @@
 				<% } %>
 
 			</section>
-
-
+				<br>
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">

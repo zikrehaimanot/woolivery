@@ -294,10 +294,7 @@ input, select, textarea {
 	.align-right {
 		text-align: right;
 	}
-	/* THIS IS THE DISPLAY NONE BUTTON */
-.hide{
-	display: none;
-}
+
 /* Row */
 
 	.row {
@@ -3991,10 +3988,81 @@ input, select, textarea {
 }
 .holdsOrdersDiv{
 	margin-bottom: 2em;
+	margin-left: 4em;
+	margin-top: 6em;
 }
 .holdsOrder{
 	margin-bottom: 2em;
 }
+.listElements{
+	display: none;
+}
+.checkoutContainer{
+	max-width: 40em;
+	margin: 2em auto;
+}
+.checkOrderStatus{
+	margin-left: 2em;
+	font-size: 2em;
+}
+.containerPageOrderStatus{
+	max-width: 40em;
+	margin-left: 30em;
+	margin-top: 10em;
+}
+.containerPageStatus{
+	font-size: 30px;
+	max-width: 40em;
+	margin-left: 15em;
+	margin-top: 10em;
+}
+.footerContainer{
+	margin-top: 30em;
+	margin-left: 30em;
+}
+.resName{
+	margin-left: 3em;
+}
+
+
+/* Order Now CSS  */
+/* THIS IS THE DISPLAY NONE BUTTON */
+.hide{
+	display: none;
+}
+.containerPageOrderNow{
+	max-width: 60em;
+	margin: 2em auto;
+	margin-top: 5em;
+}
+.split{
+	float: left;
+  /* border-right: 2px solid black; */
+	width: 45%;
+	margin-left: -5em;
+}
+.cart{
+	list-style: none;
+}
+.checkoutContainer{
+	float: left;
+	width: 50%;
+	margin-left: 7em;
+}
 .displayNone{
 	display: none;
+}
+.floatButt{
+	float: left;
+	margin-left: 9px;
+}
+.cart{
+	font-size: 28px;
+}
+p{
+	font-size: 30px;
+	margin-left: 1em;
+}
+.hideSpan{
+	display: none
 }

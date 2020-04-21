@@ -4,6 +4,7 @@ var completeOrder = document.querySelectorAll('.completeOrder')
 var resName = document.querySelector('.resName')
 Array.from(acceptOrder).forEach(button =>{
   button.addEventListener('click',function (event){
+
     var driverId = document.getElementById('driverId').value
     console.log(driverId);
     var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
@@ -22,7 +23,7 @@ Array.from(acceptOrder).forEach(button =>{
       })
   })
 })
-
+//
 // Array.from(declineOrder).forEach(a =>{
 //    a.addEventListener('click',function (event){
 //     var orderedItem = this.parentNode.childNodes[1].childNodes[1].innerText
@@ -54,9 +55,9 @@ Array.from(acceptOrder).forEach(button =>{
 //       })
 //    })
 // })
-
-
-
+//
+//
+//
 // Array.from(completeOrder).forEach(c =>{
 //     c.addEventListener('click',function (event){
 //     var orderedItem = this.parentNode.childNodes[1].childNodes[1].innerText

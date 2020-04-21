@@ -8,12 +8,11 @@ let customerId = document.querySelector('.userId').innerText
 let resId;
 let resIdValidate = []
 let clearCart = document.querySelector('.clearCart')
+let cartHide = document.querySelector('.cartHide')
+let hide = document.querySelector('.hideSpan')
 
 clearCart.addEventListener('click', () => {
-  // console.log("hi");
-  // order = []
-  // resIdValidate= []
-  // totalPrice = 0
+
   window.location.reload(true)
 })
 
@@ -38,12 +37,15 @@ Array.from(clickMenuItem).forEach(cell => {
 })
 function addToCart (item, price){
   var li = document.createElement('li')
-  var p = document.createElement('p')
+  var p = document.createElement('span')
   p.innerHTML = item + ' ' + price
   li.appendChild(p)
   cart.appendChild(li)
   if (order.length > 0){
     checkout.classList.remove("hide");
+    clearCart.classList.remove("hide");
+    hide.classList.remove("hideSpan");
+
   }
 }
 
