@@ -8,6 +8,9 @@
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+		<header id="header">
+			<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+		</header>
 		<section class="containerPageOrderStatus">
 
 
@@ -16,8 +19,7 @@
 
 				<h1>Order Confirmation</h1>
 				<% for(var i=0; i< orders.length; i++){%>
-				<% var customerId = " " + orders[i].customer + " " %>
-				<% if (orders[i].delivered == false) { %>
+				<% if (orders[i].delivered === false) { %>
 					<ul>
 				 		<li><a href="/orderStatus/<%=orders[i]._id%>" class="checkOrderStatus">Check Order Status</a></li>
 				 	</ul>

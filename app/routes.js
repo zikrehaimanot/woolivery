@@ -98,15 +98,20 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
 
   app.get('/orderConfirmation', isLoggedIn, function(req, res) {
     var user = ObjectId(req.session.passport.user)
-    console.log(user);
+
+    // console.log(user);
     db.collection('users').find({
       "_id": user
-    }).toArray((err, userResult) => {
-      console.log(userResult);
-      db.collection('orders').find({
-        "customer": " " + userResult[0]._id + " "
+
+    })
+    .toArray((err, userResult) => {
+       console.log(userResult);
+       var customerId = `${userResult[0]._id}`
+       console.log(customerId);
+       db.collection('orders').find({
+        "customer": customerId
       }).toArray((err, orderResult) => {
-        console.log(orderResult);
+         console.log(orderResult);
         if (err) return console.log(err)
         res.render('orderConfirmation.ejs', {
           user: userResult[0],
@@ -164,7 +169,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
       pickedUp : req.body.pickedUp,
       driverId : req.body.driverId,
       driverAccepted : req.body.driverAccepted,
-      reason : req.body.reason,
+      // reason : req.body.reason,
     },(err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
@@ -344,29 +349,28 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
         // DRIVER PICKED UP FOOD
 
         app.put('/pickedUp', isLoggedIn, function(req, res) {
-          var orderId = ObjectId(req.body.orderId.trim());
-          var customerId = ObjectId(req.body.customerId.trim());
-          var reason = req.body.reason
-          var driverId = ObjectId(req.body.driverId)
-
-          var userQuery = db.collection('users').find({
-            "_id": customerId
-          });
-          userQuery.toArray((err, customer) => {
-            if (err) return console.log(err)
-            // console.log(customer);
-            customerNumber = '1' + customer[0].local.number
-            var msg = "Your Driver Has Your Food, Tip Well Please"
-            nexmo.message.sendSms(
-              '12012750754', customerNumber, msg, {
-                type: 'unicode'
-              },
-              (err, result) => {
-                if (err) return console.log(err)
-                console.log('sent text')
-              })
-            })
-
+            var orderId = ObjectId(req.body.orderId.trim());
+            var customerId = ObjectId(req.body.customerId.trim());
+            var reason = req.body.reason
+            var driverId = ObjectId(req.body.driverId)
+            // var userQuery = db.collection('users').find({
+            //   "_id": customerId
+            // });
+            // userQuery.toArray((err, customer) => {
+            //   if (err) return console.log(err)
+            //   // console.log(customer);
+            //   customerNumber = '1' + customer[0].local.number
+            //   var msg = "Your Driver Has Your Food, Tip Well Please"
+            //   nexmo.message.sendSms(
+            //     '12012750754', customerNumber, msg, {
+            //       type: 'unicode'
+            //     },
+            //     (err, result) => {
+            //       if (err) return console.log(err)
+            //       console.log('sent text')
+            //     })
+            //   })
+              console.log(reason);
               db.collection('users')
               .findOneAndUpdate({
                 _id: driverId
@@ -375,33 +379,30 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
                   reason : reason
                 }
               }, (err, result) => {
-                console.log("gothere1");
+                console.log(reason);
+                // console.log("gothere1");
                 if (err) return res.send(err)
-                res.send(result)
-              })
-
-              console.log("gothere2");
-              db.collection('orders')
-              .findOneAndUpdate({
-                _id: orderId
-              }, {
-                $set: {
-                  pickedUp: true
-                }
-              }, {
-                sort: {
-                  _id: -1,
-                },
-                upsert: false
-              }, (err, result) => {
-                console.log("gothere3");
-                if (err) return res.send(err)
-                console.log("gothere4");
-                res.send(result)
-              })
-
-          })
-
+                // console.log("gothere2");
+                db.collection('orders')
+                .findOneAndUpdate({
+                  _id: orderId
+                }, {
+                    $set: {
+                      pickedUp: true
+                    }
+                  }, {
+                    sort: {
+                      _id: -1,
+                    },
+                    upsert: false
+                  }, (err, result) => {
+                    // console.log("gothere3");
+                    if (err) return res.send(err)
+                    // console.log("gothere4");
+                    res.send(result)
+                  })
+                })
+            })
 
 
             app.put('/delivered', isLoggedIn, function(req, res) {

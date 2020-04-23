@@ -1,0 +1,46 @@
+body{
+  background-image: url(../images/livery/cover.png);
+  background-size: contain;
+}
+.signup{
+  display: grid;
+  /* justify-content: center; */
+  position: relative;
+  top: 500px;
+  left: 650px;
+  width: 60%;
+}
+.aToButton{
+	background-color: white;
+	color: #242A41;
+	padding: 0.4em;
+	font-size: 18px;
+	border-radius: 10px;
+	/* margin-right: 1%; */
+	text-decoration: none;
+  display: inline-block;
+
+}
+button{
+  background-color: white;
+  color: #242A41;
+  padding: 0.4em;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-left: 2%;
+  text-decoration: none;
+  display: inline-block;
+
+}
+form{
+  margin-left: -150px;
+}
+div{
+  font-size: 30px;
+}
+input,label{
+  float: left;
+}
+input{
+  margin-top: 9px;
+}

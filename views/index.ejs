@@ -1,20 +1,17 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="css/indexStyle.css">
 </head>
 <body>
-<div class="container">
+  <section class="signup">
 
-    <div class="jumbotron text-center">
-        <h1>WooLivery</h1>
 
-        <p>Login or Signup:</p>
 
         <!-- <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a> -->
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
         <!-- <a href="/homepage">Go To DemoDay</a> -->
         <form action="/login" method="post">
             <div class="form-group">
@@ -25,11 +22,9 @@
                 <label>Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
-
             <button type="submit" class="btn btn-warning btn-lg">Login</button>
+            <a href="/signup" class="aToButton"><span class="fa fa-user"></span>Signup</a>
         </form>
-    </div>
-
-</div>
+  </section>
 </body>
 </html>

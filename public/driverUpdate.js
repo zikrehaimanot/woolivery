@@ -22,12 +22,14 @@ Array.from(pickedUp).forEach(button =>{
         })
       })
       .then(response => {
+
         if (response.ok) return response.json()
+
       })
-      // .then(data => {
-      //   console.log(data)
-      //   window.location.reload(true)
-      // })
+      .then(data => {
+        console.log(data)
+        // window.location.reload(true)
+      })
   })
 })
 

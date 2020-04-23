@@ -1,0 +1,11 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: amita-regular
+font link: https://fonts.google.com/specimen/Amita
+font author: Eduardo Tunni
+font author site: http://www.tipo.net.ar/
+Slogan Font: WorkSans-Light.ttf
+
+{"bg":"#DEE5F3","icon-gradient-0":"#288B58","icon-gradient-1":"#1522F1","font":"#0C203C","slogan":"#203450"}
+      
