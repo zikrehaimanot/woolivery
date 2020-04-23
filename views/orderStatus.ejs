@@ -25,12 +25,15 @@
 
 				<% if(orders.pickedUp === true && orders.delivered === false){ %>
 				<%	status = "order is picked up and on its way,Tip Well Please"%>
-
+				<p> <%=orders.reason %> </p>
+				<form class="" action="/tipPost" method="post">
+					<input type="number" name="tip" value="">
+					<button type="submit" name="button"> Tip</button>
+				</form>
 				<%	} %>
 
 				<% if(orders.delivered === true){ %>
 				<%	status = "Driver is here" %>
-				<p> <%=orders.reason %> </p> 
 				<%	} %>
 
 

@@ -74,6 +74,7 @@ checkout.addEventListener('click', () =>{
       'driverId': null,
       'driverAccepted': false,
       // 'reason' : null,
+      // 'tip'    : null,
     })
   })
   .then(response => {
