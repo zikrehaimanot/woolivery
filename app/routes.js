@@ -51,8 +51,10 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
       "_id": orderId
     }).toArray((err, orders) => {
       if (err) return console.log(err)
+      console.log(order[0]);
       res.render('orderStatus.ejs', {
         orders: orders[0]
+
       })
     })
   });
@@ -169,7 +171,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
       pickedUp : req.body.pickedUp,
       driverId : req.body.driverId,
       driverAccepted : req.body.driverAccepted,
-      // reason : req.body.reason,
+      reason : ""
     },(err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
@@ -388,7 +390,8 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
                   _id: orderId
                 }, {
                     $set: {
-                      pickedUp: true
+                      pickedUp: true,
+                      reason: reason
                     }
                   }, {
                     sort: {

@@ -25,10 +25,12 @@
 
 				<% if(orders.pickedUp === true && orders.delivered === false){ %>
 				<%	status = "order is picked up and on its way,Tip Well Please"%>
+
 				<%	} %>
 
 				<% if(orders.delivered === true){ %>
 				<%	status = "Driver is here" %>
+				<p> <%=orders.reason %> </p> 
 				<%	} %>
 
 
