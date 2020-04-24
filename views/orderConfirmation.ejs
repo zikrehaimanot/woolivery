@@ -1,48 +1,63 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>WooLivery</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<header id="header">
-			<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
-		</header>
-		<section class="containerPageOrderStatus">
+<head>
+	<title>WooLivery</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="css/main.css" />
+	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+	<header id="header">
+		<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+	</header>
+	<section class="containerPageOrderStatus">
 
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<h1>Order Confirmation</h1>
-				<% for(var i=0; i< orders.length; i++){%>
+			<h1>Order Confirmation</h1>
+			<ul>
+
+			<% for(var i=0; i< orders.length; i++){%>
 				<% if (orders[i].delivered === false) { %>
-					<ul>
-				 		<li><a href="/orderStatus/<%=orders[i]._id%>" class="checkOrderStatus">Check Order Status</a></li>
-				 	</ul>
-				<% } else { %>
-				<% } %>
-				<% } %>
-				<p class="hide"> <%= user._id %> </p>
-				<section>
-					<p>thank you for ordering message</p>
-				</section>
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-							</ul>
-						</div>
-					</footer>
 
-			</div>
-		</section>
-	</body>
-</html>
+
+								<li>Restaurant Name</li>
+								<li>Total Price: <%= orders[i].totalPrice %> </li>
+								<li> Orderd Items:
+									<% orders[i].orderedItem.forEach(item => {   %>
+									<li style="margin-left: 20px; list-style-type:circle; "><%= item %> </li>
+								<%	}) %>
+
+								</li>
+
+						<a href="/orderStatus/<%=orders[i]._id%>" class="checkOrderStatus">Check Order Status	</a>
+
+
+					<% } else { %>
+						<% } %>
+						<% } %>
+				</ul>
+
+						<p class="hide"> <%= user._id %> </p>
+						<section>
+							<p>thank you for ordering message</p>
+						</section>
+						<footer id="footer">
+							<div class="inner">
+								<ul class="icons">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+								<ul class="copyright">
+								</ul>
+							</div>
+						</footer>
+
+					</div>
+				</section>
+			</body>
+			</html>

@@ -12,6 +12,8 @@
 			<div id="wrapper">
 					<header id="header">
 						<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+						<a href="/orderNow" class="aToButtonG" id="orderNowButton">Order Now</a>
+
 					</header>
 
 					<!-- <a href="/generic" class="home">Home</a> -->
@@ -24,14 +26,15 @@
 						</section>
 						<section>
 							<h2>Menu Items</h2>
-							<ul>
+							<select>
 								<% for(var j=0; j<results[i].menu.length; j++){%>
-								<li class="styleMenuItem"><%= results[i].menu[j].itemName%> $ <%=results[i].menu[j].price%> </li>
+								<option ><%= results[i].menu[j].itemName%> $ <%=results[i].menu[j].price%> </option>
 
 								<% } %>
-							</ul>
+							</select>
 						</section>
 					<% } %>
+
 					</div>
 
 

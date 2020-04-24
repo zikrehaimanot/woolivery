@@ -59,6 +59,47 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
     })
   });
 
+  app.post('/tipPost/:orderId', isLoggedIn, function(req,res){
+    var orderId = ObjectId(req.params.orderId)
+    var tip = req.body.tip
+    console.log(tip);
+    db.collection('orders').findOneAndUpdate({
+      "_id": orderId
+    }, {
+      $set: {
+        tip: tip
+      }
+    }, {
+      upsert: false
+    }, (err, result) => {
+      if (err) return res.send(err)
+
+      res.redirect(`/orderStatus/${req.params.orderId}`)
+    })
+  })
+
+
+
+  //
+  // db.collection('orders')
+  // .findOneAndUpdate({
+  //   _id: orderId
+  // }, {
+  //   $set: {
+  //     accepted: true
+  //   }
+  // }, {
+  //   sort: {
+  //     _id: -1,
+  //   },
+  //   upsert: false
+  // }, (err, result) => {
+  //   if (err) return res.send(err)
+  //
+  // })
+
+
+
   app.get('/orderNow',isLoggedIn, function(req, res) {
     db.collection('resturants').find().toArray((err, result) => {
       if (err) return console.log(err)

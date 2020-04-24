@@ -3132,6 +3132,8 @@ input, select, textarea {
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 		#header .logo {
@@ -4132,3 +4134,16 @@ input, select, textarea {
 }
 
 /* RESTURANT PARTNER */
+
+#orderNowButton{
+	align-items: center;
+	display: flex;
+  height: 80%;
+	padding: 0;
+	margin-top: 0;
+	height: 70%;
+	font-size: 15px;
+	padding: 8px;
+	letter-spacing: 1px;
+
+}
