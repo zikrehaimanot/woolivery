@@ -25,8 +25,8 @@ var ObjectId = require('mongodb').ObjectID
 var db
 var Nexmo = require('nexmo')
 const nexmo = new Nexmo({
-  apiKey: '1a7cfdf4',
-  apiSecret: 'rcbootcamp2019Ben710'
+  apiKey: '0a109c1d',
+  apiSecret: 'B0L7JzWqYp49ug2R'
 })
 // configuration ===============================================================
 mongoose.connect(configDB.url, (err, database) => { // .connect is a method used for mongoDB to connect to your database

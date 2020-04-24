@@ -78,28 +78,6 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
     })
   })
 
-
-
-  //
-  // db.collection('orders')
-  // .findOneAndUpdate({
-  //   _id: orderId
-  // }, {
-  //   $set: {
-  //     accepted: true
-  //   }
-  // }, {
-  //   sort: {
-  //     _id: -1,
-  //   },
-  //   upsert: false
-  // }, (err, result) => {
-  //   if (err) return res.send(err)
-  //
-  // })
-
-
-
   app.get('/orderNow',isLoggedIn, function(req, res) {
     db.collection('resturants').find().toArray((err, result) => {
       if (err) return console.log(err)
@@ -227,16 +205,18 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
     var customerId = ObjectId(req.body.customerId.trim());
     var resName = req.body.resName
     var customerNumber;
-
+    // console.log(orderId, customerId);
     db.collection('users').find({
       "_id": customerId
     }).toArray((err, customer) => {
       if (err) return console.log(err)
-      // console.log(customer);
+      console.log(customer);
       customerNumber = '1' + customer[0].local.number
       var msg = "Restaurant Working On Order"
+      console.log(customerNumber);
+
       nexmo.message.sendSms(
-        '12012750754', customerNumber, msg, {
+        '13095901569', customerNumber, msg, {
           type: 'unicode'
         },
         (err, result) => {
@@ -280,7 +260,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
         customerNumber = '1' + customer[0].local.number
         var msg = "Your Order Is Completed"
         nexmo.message.sendSms(
-          '12012750754', customerNumber, msg, {
+          '13095901569', customerNumber, msg, {
             type: 'unicode'
           },
           (err, result) => {
@@ -325,7 +305,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
           // console.log(customerName, customerNumber);
           var msg = "The Resturant Declined Your Order"
           nexmo.message.sendSms(
-            '12012750754', customerNumber, msg, {
+            '13095901569', customerNumber, msg, {
               type: 'unicode'
             },
             (err, result) => {
@@ -363,7 +343,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
           //   console.log(customerName, customerNumber);
           //   var msg = "Your Order Is About To Be Picked Up"
           //   nexmo.message.sendSms(
-          //      '12012750754', customerNumber, msg, {
+          //      '13095901569', customerNumber, msg, {
           //       type: 'unicode'
           //     },
           //     (err, result) => {
@@ -397,23 +377,23 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
             var customerId = ObjectId(req.body.customerId.trim());
             var reason = req.body.reason
             var driverId = ObjectId(req.body.driverId)
-            // var userQuery = db.collection('users').find({
-            //   "_id": customerId
-            // });
-            // userQuery.toArray((err, customer) => {
-            //   if (err) return console.log(err)
-            //   // console.log(customer);
-            //   customerNumber = '1' + customer[0].local.number
-            //   var msg = "Your Driver Has Your Food, Tip Well Please"
-            //   nexmo.message.sendSms(
-            //     '12012750754', customerNumber, msg, {
-            //       type: 'unicode'
-            //     },
-            //     (err, result) => {
-            //       if (err) return console.log(err)
-            //       console.log('sent text')
-            //     })
-            //   })
+            var userQuery = db.collection('users').find({
+              "_id": customerId
+            });
+            userQuery.toArray((err, customer) => {
+              if (err) return console.log(err)
+              // console.log(customer);
+              customerNumber = '1' + customer[0].local.number
+              var msg = "Your Driver Has Your Food, Tip Well Please"
+              nexmo.message.sendSms(
+                '13095901569', customerNumber, msg, {
+                  type: 'unicode'
+                },
+                (err, result) => {
+                  if (err) return console.log(err)
+                  console.log('sent text')
+                })
+              })
               console.log(reason);
               db.collection('users')
               .findOneAndUpdate({
@@ -463,7 +443,7 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
                 customerNumber = '1' + customer[0].local.number
                 var msg = "Your Driver Is Outside"
                 nexmo.message.sendSms(
-                  '12012750754', customerNumber, msg, {
+                  '13095901569', customerNumber, msg, {
                     type: 'unicode'
                   },
                   (err, result) => {
@@ -488,16 +468,6 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
                   res.send(result)
                 })
               });
-
-
-              // app.delete('/orders', (req, res) => {
-              //   //deletemethod:Deletes a single document based on the filter and sort criteria, returning the deleted document https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndDelete/
-              //   db.collection('orders').findOneAndDelete({name: req.body.name, email: req.body.email, review: req.body.review}, (err, result) => {//looks at messages collection,s finds and deletes.
-              //     if (err) return res.send(500, err)//if error, send error
-              //     res.send('Message deleted!')
-              //   })
-              // })
-
               //Authenticates the user and makes sure user is logged in and only on their account  =============================================================================
               // AUTHENTICATE (FIRST LOGIN) ==================================================
               // =============================================================================

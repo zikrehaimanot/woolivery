@@ -4049,7 +4049,15 @@ input, select, textarea {
   font-style: italic;
 
 }
-
+.keepYellow{
+	background-color: yellow;
+}
+.keepGreen{
+	background-color: green;
+}
+.keepRed{
+	 background-color: red;
+}
 /* RANDOM STYLING NEED TO PLLACE IN CORRECT SPOT */
 .createElement{
 	margin: 2em 0;
@@ -4074,9 +4082,7 @@ input, select, textarea {
 	font-size: 2em;
 }
 
-.holdsOrder{
-	margin-bottom: 2em;
-}
+
 .listElements{
 	display: none;
 }
@@ -4111,6 +4117,12 @@ input, select, textarea {
 	width: 50%;
 	margin-left: 7em;
 }
+.showBorder{
+	border: 2px solid white;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	border-radius: 5px;
+}
 .displayNone{
 	display: none;
 }
@@ -4132,7 +4144,17 @@ input, select, textarea {
 	font-weight: bold;
 	font-style: italic;
 }
+.styleMenuItem:hover{
+	cursor: pointer;
+	color: #3E7A9E;
+}
+ul{
+	list-style-type: none;
+}
+.moveButton{
+	margin: 0 10%;
 
+}
 /* RESTURANT PARTNER */
 
 #orderNowButton{
@@ -4145,5 +4167,78 @@ input, select, textarea {
 	font-size: 15px;
 	padding: 8px;
 	letter-spacing: 1px;
+
+}
+
+
+/* DRIVER ACCEPT ORDER CSS  */
+
+#driverId{
+	position: relative;
+	left: -9999px;
+}
+#footerDriver{
+	position: relative;
+	top: 550px;
+	left: 300px;
+}
+/* DRIVER PICKED UP FOOD CSS */
+
+#driverIdOrder{
+	position: relative;
+	left: -9999px;
+}
+.aToButtonDriver{
+	background-color: white;
+	color: #242A41;
+	padding: 0.4em;
+	font-size: 28px;
+	border-radius: 10px;
+	margin-left: 1%;
+	text-decoration: none;
+	/* margin-top: .5em; */
+	margin-top: -10px;
+}
+ul:first-of-type{
+	margin-top: 30px;
+}
+.changePostition{
+	position: relative;
+	left: -9999px;
+}
+
+/* CSS FOR ORDER STATUS */
+
+.input{
+	max-width: 30em;
+	float: left;
+}
+.tipButton{
+	float: left;
+}
+.acceptOrder{
+	background-color: white;
+	color: #242A41;
+	padding: 0.4em;
+	font-size: 28px;
+	border-radius: 10px;
+	margin-left: 1%;
+	text-decoration: none;
+	/* margin-top: .5em; */
+	margin-top: -10px;
+}
+.declineOrder{
+	background-color: white;
+	color: #242A41;
+	padding: 0.4em;
+	font-size: 28px;
+	border-radius: 10px;
+	margin-left: 1%;
+	text-decoration: none;
+	/* margin-top: .5em; */
+	margin-top: -10px;
+}
+.holdsOrder{
+	margin-bottom: 2em;
 
 }

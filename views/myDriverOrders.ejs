@@ -18,6 +18,8 @@
 					<header id="header">
 
 						<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+						<a href="/driverOrder" class="aToButtonG" id="orderNowButton">Orders</a>
+
 						<!-- <nav>
 							<ul class="links">
 								<li><a href="generic">Home</a></li>
@@ -27,10 +29,10 @@
 					</div>
 
 				<!-- Contact -->
-				<h2 class="driverId"><%= user._id%></h2>
+				<h2 class="driverId" id="driverIdOrder"><%= user._id%></h2>
 
 					<h2 class="resName"> </h2>
-					<input type="text" name="" value="" placeholder="why I drive" id="driverReason">
+				<h2>Tell Customers Why You Drive<input type="text" name="" value="" placeholder="why I drive" id="driverReason"></h2>
 			 <section>
 
 				<%  for(var i = 0 ; i < orders.length; i++){ %>
@@ -43,8 +45,8 @@
 						<li><%= orders[i].totalPrice %></li>
 
 					</ul>
-					<a  href="#"class="pickedUp">Picked-Up</a>
-					<a href="#"class="delivered">Delivered</a>
+					<a  href="#"class="pickedUp aToButtonDriver" >Picked-Up</a>
+					<a href="#"class="delivered aToButtonDriver">Delivered</a>
 				</div>
 				<% } %>
 				<% } %>

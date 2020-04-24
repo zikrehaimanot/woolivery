@@ -5,10 +5,11 @@ var resName = document.querySelector('.resName')
 // console.log(acceptOrder);
 Array.from(acceptOrder).forEach(button =>{
   button.addEventListener('click',function (event){
-    // console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
+   button.classList.add('keepYellow')
+    console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
     var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
     var customerId = this.parentNode.childNodes[1].childNodes[3].innerText
-    // console.log(orderId, customerId);
+     console.log(orderId, customerId);
       fetch('acceptedOrder', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
@@ -21,14 +22,18 @@ Array.from(acceptOrder).forEach(button =>{
       })
       .then(response => {
         if (response.ok) return response.json()
-      }).then(data => {
-        console.log(data)
-        window.location.reload(true)
       })
+      // .then(data => {
+      //   console.log(data)
+      //   window.location.reload(true)
+      // })
   })
 })
 Array.from(completeOrder).forEach(c =>{
     c.addEventListener('click',function (event){
+      // this.style.background = 'green'
+      c.classList.add('keepGreen')
+
     // console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
     // var orderedItem = this.parentNode.childNodes[1].childNodes[1].innerText
     // var totalPrice = this.parentNode.childNodes[1].childNodes[3].innerText
@@ -67,6 +72,8 @@ Array.from(completeOrder).forEach(c =>{
 })
 Array.from(declineOrder).forEach(a =>{
    a.addEventListener('click',function (event){
+     a.classList.add('keepRed')
+
      // console.log("whyyyyyyy");
     var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
     // var totalPrice = this.parentNode.childNodes[1].childNodes[3].innerText

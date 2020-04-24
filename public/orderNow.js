@@ -10,6 +10,7 @@ let resIdValidate = []
 let clearCart = document.querySelector('.clearCart')
 let cartHide = document.querySelector('.cartHide')
 let hide = document.querySelector('.hideSpan')
+let checkoutContainer = document.querySelector('.checkoutContainer')
 
 clearCart.addEventListener('click', () => {
 
@@ -45,7 +46,7 @@ function addToCart (item, price){
     checkout.classList.remove("hide");
     clearCart.classList.remove("hide");
     hide.classList.remove("hideSpan");
-
+    checkoutContainer.classList.add('showBorder')
   }
 }
 
@@ -72,7 +73,7 @@ checkout.addEventListener('click', () =>{
       'delivered': false,
       'pickedUp': false,
       'driverId': null,
-      'driverAccepted': false,
+      'driverAccepted': false
       // 'reason' : null,
       // 'tip'    : null,
     })

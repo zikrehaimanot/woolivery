@@ -6,9 +6,10 @@ Array.from(acceptOrder).forEach(button =>{
   button.addEventListener('click',function (event){
 
     var driverId = document.getElementById('driverId').value
-    console.log(driverId);
+    // console.log(driverId);
     var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
-    var customerId = this.parentNode.childNodes[1].childNodes[1].innerText
+
+    // var customerId = this.parentNode.childNodes[1].childNodes[1].innerText
     // var driverAccepted = this.parentNode.childNodes[1].childNodes[5].innerText
       fetch('acceptedOrderDriver', {
         method: 'put',
@@ -16,7 +17,7 @@ Array.from(acceptOrder).forEach(button =>{
         body: JSON.stringify({
            'orderId'  : orderId,
            'driverId' : driverId,
-           
+
         })
       })
       .then(response => {

@@ -1,70 +1,66 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>WooLivery</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+	<title>WooLivery</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="css/main.css" />
+	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+	<header id="header">
+		<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+		<a href="/myDriverOrders" class="aToButtonD"id="orderNowButton">My Orders</a>
+
+		<!-- <nav>
+		<ul class="links">
+		<li><a href="generic">Home</a></li>
+
+
+	</ul>
+</nav> -->
+</header>
 <section class="containerPage">
 
+	<h2 class="resName"></h2>
+	<input type="text" name="" disabled value= "<%= user._id%>" id="driverId">
+	<section class="holdsOrder">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<%  for(var i = 0 ; i < orders.length; i++){ %>
+			<% if(orders[i].completed === true && orders[i].driverAccepted === false) {%>
+				<ul>
+					
+					<li class="hide"><%= orders[i]._id %></li>
+					<li><%= orders[i].orderedItem %></li>
+					<li><%= orders[i].totalPrice %></li>
+					<li class="hide"><%= orders[i].driverAccepted %></li>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
-						<!-- <nav>
-							<ul class="links">
-								<li><a href="generic">Home</a></li>
-
-
-							</ul>
-						</nav> -->
-					</header>
-					</div>
-				<!-- Contact -->
-					<h2 class="resName"></h2>
-					<input type="text" name="" disabled value= "<%= user._id%>" id="driverId">
-			 <section class="holdsOrder">
-
-				<%  for(var i = 0 ; i < orders.length; i++){ %>
-					<% if(orders[i].completed === true && orders[i].driverAccepted === false) {%>
-					<ul>
-						<li class="hide"><%= orders[i]._id %></li>
-						<li><%= orders[i].orderedItem %></li>
-						<li><%= orders[i].totalPrice %></li>
-						<li class="hide"><%= orders[i].driverAccepted %></li>
-
-					</ul>
-					<a  href="#"class="acceptOrder">Accept</a>
-					<a href="#"class="declineOrder">Decline</a>
-					<% } %>
+				</ul>
+				<a  href="#"class="acceptOrder">Accept</a>
+				<a href="#"class="declineOrder">Decline</a>
+				<% } %>
 				<% } %>
 			</section>
 
 
 
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-							</ul>
-						</div>
-					</footer>
-					</section>
-					<script type="text/javascript" src="driverOrder.js">
+			<footer id="footerDriver">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<!-- <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+						<!-- <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+					</ul>
+				</div>
+			</footer>
+		</section>
+		<script type="text/javascript" src="driverOrder.js">
 
-					</script>
-			</div>
-	</body>
+		</script>
+	</div>
+</body>
 </html>

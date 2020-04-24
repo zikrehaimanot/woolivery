@@ -45,12 +45,12 @@
 				<% if(user.local.purpose === "user"){ %>
 					<a href="/orderNow" class="aToButtonG">Order Now</a>
 					<% } %>
-					<% if(user.local.purpose === "owner"){ %>
-						<a href="/order" class="aToButtonG">Orders</a>
-						<% } %>
 						<% if(user.local.purpose === "owner"){ %>
 							<a href="/resturantSignUp" class="aToButtonG">Sign Up Resturants</a>
 							<% } %>
+							<% if(user.local.purpose === "owner"){ %>
+								<a href="/order" class="aToButtonG">Orders</a>
+								<% } %>
 								<% if(user.local.purpose === "driver"){ %>
 									<a href="/driverOrder" class="aToButtonG">Orders</a>
 									<% } %>
