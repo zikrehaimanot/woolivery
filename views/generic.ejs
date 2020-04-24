@@ -40,6 +40,9 @@
 			<ul class="links" class="listElements">
 				<!-- <li><a href="/generic">Home</a></li> -->
 				<% if(user.local.purpose === "user"){ %>
+					<a href="/resturantPartner" class="aToButtonC">Resturants</a>
+					<% } %>
+				<% if(user.local.purpose === "user"){ %>
 					<a href="/orderNow" class="aToButtonG">Order Now</a>
 					<% } %>
 					<% if(user.local.purpose === "owner"){ %>
@@ -48,9 +51,6 @@
 						<% if(user.local.purpose === "owner"){ %>
 							<a href="/resturantSignUp" class="aToButtonG">Sign Up Resturants</a>
 							<% } %>
-							<% if(user.local.purpose === "user"){ %>
-								<a href="/resturantPartner" class="aToButtonC">Resturants</a>
-								<% } %>
 								<% if(user.local.purpose === "driver"){ %>
 									<a href="/driverOrder" class="aToButtonG">Orders</a>
 									<% } %>

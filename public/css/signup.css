@@ -1,8 +1,43 @@
 body{
-  background-image: url(../images/one.jpeg);
+  background-image: url(../images/livery/cover.png);
+  background-size: contain;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #DFE5F2
 }
-section{
+/* section{
   margin-left: -700px;
+} */
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.col-sm-6{
+  margin-top: 300px;
+}
+.form-control{
+  background-color: #E9F0FD
+}
+form{
+  margin-top: 50px;
+  width: 60%;
+}
+p{
+  float: left;
+  font-size: 20px;
+}
+/* p:first-of-type{
+  margin-right: 20px;
+  margin-left: -40px;
+} */
+button{
+  background-color: white;
+  color: #242A41;
+  padding: 0.4em;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-left: 1%;
+  text-decoration: none;
+  margin-top: .5em;
 }
