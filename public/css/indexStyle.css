@@ -10,17 +10,16 @@ body{
   left: 650px;
   width: 60%;
 }
-.aToButton{
-	background-color: white;
-	color: #242A41;
-	padding: 0.4em;
-	font-size: 18px;
-	border-radius: 10px;
-	/* margin-right: 1%; */
-	text-decoration: none;
+/* .aToButton{
+  background-color: white;
+  color: #242A41;
+  padding: 0.4em;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-left: 2%;
+  text-decoration: none;
   display: inline-block;
-
-}
+} */
 button{
   background-color: white;
   color: #242A41;
@@ -32,6 +31,7 @@ button{
   display: inline-block;
 
 }
+
 form{
   margin-left: -150px;
 }
