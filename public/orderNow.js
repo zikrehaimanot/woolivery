@@ -22,7 +22,7 @@ Array.from(clickMenuItem).forEach(cell => {
     if(order.length > 0 && this.childNodes[7].innerText !== resIdValidate[0]){
       alert("please only order from 1 resturant at a time")
     }else{
-
+    let placeName = document.querySelector('.placeName').innerText
     let item =  this.childNodes[1].innerText
     let price = this.childNodes[3].innerText
     resId = this.childNodes[5].innerText
@@ -31,6 +31,7 @@ Array.from(clickMenuItem).forEach(cell => {
     resIdValidate.push(resturantId)
     order.push(item)
     console.log(order);
+
     addToCart(item, price)
     updateTotal(price)
     }

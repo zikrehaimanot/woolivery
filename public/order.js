@@ -5,16 +5,15 @@ var resName = document.querySelector('.resName')
 // console.log(acceptOrder);
 Array.from(acceptOrder).forEach(button =>{
   button.addEventListener('click',function (event){
-   button.classList.add('keepYellow')
-    console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
-    var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
-    var customerId = this.parentNode.childNodes[1].childNodes[3].innerText
-     console.log(orderId, customerId);
+   // button.classList.add('keepYellow')
+   console.log(this.parentNode.parentNode.childNodes[1].childNodes[1].innerText);
+    var orderId = this.parentNode.parentNode.childNodes[1].childNodes[1].innerText
+    var customerId = this.parentNode.parentNode.childNodes[1].childNodes[3].innerText
+
       fetch('acceptedOrder', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-
            'orderId'  : orderId,
            'customerId': customerId,
 
@@ -32,16 +31,16 @@ Array.from(acceptOrder).forEach(button =>{
 Array.from(completeOrder).forEach(c =>{
     c.addEventListener('click',function (event){
       // this.style.background = 'green'
-      c.classList.add('keepGreen')
+      // c.classList.add('keepGreen')
 
     // console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
     // var orderedItem = this.parentNode.childNodes[1].childNodes[1].innerText
     // var totalPrice = this.parentNode.childNodes[1].childNodes[3].innerText
     // console.log(this.parentNode.childNodes[1].childNodes[1].innerText);
     // console.log(this.parentNode.childNodes[1].childNodes[3].innerText);
-    var customerId = this.parentNode.childNodes[1].childNodes[3].innerText
-    var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
-    console.log(customerId, orderId);
+    var orderId = this.parentNode.parentNode.childNodes[1].childNodes[1].innerText
+    var customerId = this.parentNode.parentNode.childNodes[1].childNodes[3].innerText
+    // console.log(customerId, orderId);
     // var resId = this.parentNode.childNodes[1].childNodes[9].innerText
     // var accepted = this.parentNode.childNodes[1].childNodes[11].innerText
     // var completed = this.parentNode.childNodes[1].childNodes[13].innerText
@@ -72,12 +71,13 @@ Array.from(completeOrder).forEach(c =>{
 })
 Array.from(declineOrder).forEach(a =>{
    a.addEventListener('click',function (event){
-     a.classList.add('keepRed')
-
-     // console.log("whyyyyyyy");
-    var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
+     // a.classList.add('keepRed')
+     var orderId = this.parentNode.parentNode.childNodes[1].childNodes[1].innerText
+     var customerId = this.parentNode.parentNode.childNodes[1].childNodes[3].innerText
+    // console.log("whyyyyyyy");
+    // var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
     // var totalPrice = this.parentNode.childNodes[1].childNodes[3].innerText
-    var customerId = this.parentNode.childNodes[1].childNodes[3].innerText
+    // var customerId = this.parentNode.childNodes[1].childNodes[3].innerText
     // var orderId = this.parentNode.childNodes[1].childNodes[7].innerText
     // var resId = this.parentNode.childNodes[1].childNodes[9].innerText
     // var accepted = this.parentNode.childNodes[1].childNodes[11].innerText

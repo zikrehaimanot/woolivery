@@ -19,35 +19,37 @@
 			<h1>Order Confirmation</h1>
 			<ul>
 
-			<% for(var i=0; i< orders.length; i++){%>
-				<% if (orders[i].delivered === false) { %>
+				<% for(var i=0; i< orders.length; i++){%>
+					<% if (orders[i].delivered === false) { %>
+
+						<div class="menuItemsContainer">
 
 
-								<!-- <li>Restaurant Name</li> -->
-								<li>Total Price: <%= orders[i].totalPrice %> </li>
-								<li> Orderd Items:
+
+							<div class="menuItemsConfirmation">
+								<li class="liPix">Total Price: <%= orders[i].totalPrice %> </li>
+								<li class="liPix"> Orderd Items:
 									<% orders[i].orderedItem.forEach(item => {   %>
-									<li style="margin-left: 20px; list-style-type:circle; "><%= item %> </li>
-								<%	}) %>
+										<li style="margin-left: 20px; list-style-type:circle; " class="liPix"><%= item %> </li>
+										<%	}) %>
+									</li>
+								</div>
 
-								</li>
-
-						<a href="/orderStatus/<%=orders[i]._id%>" class="checkOrderStatus">Check Order Status	</a>
-
-
-					<% } else { %>
-						<% } %>
-						<% } %>
-				</ul>
-
-						<p class="hide"> <%= user._id %> </p>
-						<!-- <section>
-							<p>thank you for ordering message</p>
-						</section> -->
-						<%- include footer.ejs %>
+								<div class="flexOrderStatus">
+									<a href="/orderStatus/<%=orders[i]._id%>" class="checkOrderStatus">Check Order Status	</a>
+								</div>
+							</div>
+							<% } else { %>
+								<% } %>
+								<% } %>
+							</ul>
 
 
-					</div>
-				</section>
-			</body>
-			</html>
+							<p class="hide"> <%= user._id %> </p>
+						</div>
+
+						<!-- </div> -->
+					</section>
+					<%- include footer.ejs %>
+				</body>
+				</html>

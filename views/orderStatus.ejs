@@ -1,48 +1,43 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>WooLivery</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<header id="header">
-			<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
-		</header>
-				<section class="containerPageStatus">
+<head>
+	<title>WooLivery</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/css/main.css" />
+	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+	<header id="header">
+		<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+	</header>
+	<section class="containerPageStatus">
+		<% var status = "waiting for restaurant to accept your order" %>
 
-				<% var status = "waiting for restaurant to accept your order" %>
+		<% if(orders.accepted === true && orders.completed === false){ %>
+			<%	status = "Resturant accepted your order"%>
+			<%	} %>
 
-				<% if(orders.accepted === true && orders.completed === false){ %>
-				<%	status = "Resturant accepted your order"%>
-			  <%	} %>
-
-				<% if(orders.completed === true && orders.pickedUp === false){ %>
+			<% if(orders.completed === true && orders.pickedUp === false){ %>
 				<%	status = "Order is ready and is waiting to be picked-up"%>
 				<%	} %>
 
 				<% if(orders.pickedUp === true && orders.delivered === false){ %>
 					<h3>Here's Why You Should Leave A Tip For The Driver: <%=orders.reason %>  </h3>
 					<% if(orders.tip === null || orders.tip === ""){ %>
-					<form class="formStatus" action="/tipPost/<%= orders._id %>" method="POST">
-						<input type="number" name="tip" value="" class="input" placeholder="Leave Tip Here">
-						<button type="submit" class="tipButton"> Tip </button>
-					</form>
-
-					<% }else{  %>
-						<p>You tipped: $ <%= orders.tip %></p>
-					<%	} %>
-				<%	status = "Your order is picked up and on its way, Tip Well Please"%>
-				<%	} %>
-				<% if(orders.delivered === true){ %>
-				<%	status = "Driver is here" %>
-				<%	} %>
-
-
-
-				<%= status %>
-				</section>
-	</body>
-</html>
+						<form class="formStatus" action="/tipPost/<%= orders._id %>" method="POST">
+							<input type="number" name="tip" value="" class="input" placeholder="Leave Tip Here">
+							<button type="submit" class="tipButton"> Tip </button>
+						</form>
+						<% }else{  %>
+							<p>You tipped: $ <%= orders.tip %></p>
+							<%	} %>
+							<%	status = "Your order is picked up and on its way, Tip Well Please"%>
+							<%	} %>
+							<% if(orders.delivered === true){ %>
+								<%	status = "Driver is here" %>
+								<%	} %>
+								<%= status %>
+							</section>
+						</body>
+						</html>

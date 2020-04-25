@@ -119,20 +119,18 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
 
   app.get('/orderConfirmation', isLoggedIn, function(req, res) {
     var user = ObjectId(req.session.passport.user)
-
     // console.log(user);
     db.collection('users').find({
       "_id": user
-
     })
     .toArray((err, userResult) => {
-       console.log(userResult);
+       // console.log(userResult);
        var customerId = `${userResult[0]._id}`
-       console.log(customerId);
+       // console.log(customerId);
        db.collection('orders').find({
         "customer": customerId
       }).toArray((err, orderResult) => {
-         console.log(orderResult);
+         // console.log(orderResult);
         if (err) return console.log(err)
         res.render('orderConfirmation.ejs', {
           user: userResult[0],
