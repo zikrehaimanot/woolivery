@@ -20,7 +20,7 @@
 	</ul>
 </nav> -->
 </header>
-<section class="containerPage">
+<section class="containerPageDO">
 
 	<h2 class="resName"></h2>
 	<input type="text" name="" disabled value= "<%= user._id%>" id="driverId">
@@ -29,7 +29,7 @@
 		<%  for(var i = 0 ; i < orders.length; i++){ %>
 			<% if(orders[i].completed === true && orders[i].driverAccepted === false) {%>
 				<ul>
-					
+
 					<li class="hide"><%= orders[i]._id %></li>
 					<li><%= orders[i].orderedItem %></li>
 					<li><%= orders[i].totalPrice %></li>
@@ -41,22 +41,6 @@
 				<% } %>
 				<% } %>
 			</section>
-
-
-
-			<footer id="footerDriver">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<!-- <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-						<!-- <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-					</ul>
-					<ul class="copyright">
-					</ul>
-				</div>
-			</footer>
 		</section>
 		<script type="text/javascript" src="driverOrder.js">
 

@@ -1920,7 +1920,7 @@ input, select, textarea {
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		width: 100%;
+		/* width: 100%; */
 	}
 
 		input[type="text"]:invalid,
@@ -4047,7 +4047,6 @@ input, select, textarea {
 .resName{
 	margin-left: 3em;
   font-style: italic;
-
 }
 .keepYellow{
 	background-color: yellow;
@@ -4067,12 +4066,7 @@ input, select, textarea {
 	margin-left: 30em;
 	margin-top: 10em;
 }
-.containerPageStatus{
-	font-size: 30px;
-	max-width: 40em;
-	margin-left: 15em;
-	margin-top: 10em;
-}
+
 .checkoutContainer{
 	max-width: 40em;
 	margin: 2em auto;
@@ -4179,9 +4173,18 @@ ul{
 }
 #footerDriver{
 	position: relative;
-	top: 550px;
-	left: 300px;
+	top: 450px;
+	left: 700px;
 }
+.holdsOrder{
+	margin: 0 auto;
+	margin-left: 50px;
+}
+.containerPageDO{
+	max-width: 18em;
+	margin: 0 auto;
+}
+
 /* DRIVER PICKED UP FOOD CSS */
 
 #driverIdOrder{
@@ -4207,14 +4210,19 @@ ul:first-of-type{
 	left: -9999px;
 }
 
+
 /* CSS FOR ORDER STATUS */
 
 .input{
 	max-width: 30em;
 	float: left;
+	color: white;
 }
 .tipButton{
 	float: left;
+	border-radius: 5px;
+	font-size: 15px;
+	margin-left: 20px;
 }
 .acceptOrder{
 	background-color: white;
@@ -4241,4 +4249,14 @@ ul:first-of-type{
 .holdsOrder{
 	margin-bottom: 2em;
 
+}
+
+.containerPageStatus{
+	font-size: 30px;
+	max-width: 24em;
+	margin-left: 15em;
+	margin-top: 10em;
+}
+.formStatus{
+	height: 100px;
 }

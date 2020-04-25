@@ -24,17 +24,17 @@
 				<%	} %>
 
 				<% if(orders.pickedUp === true && orders.delivered === false){ %>
-					<h3>Here's Why You Should Leave A Tip For The Driver <p> <%=orders.reason %> </p> </h3>
+					<h3>Here's Why You Should Leave A Tip For The Driver: <%=orders.reason %>  </h3>
 					<% if(orders.tip === null || orders.tip === ""){ %>
-					<form class="" action="/tipPost/<%= orders._id %>" method="POST">
-						<input type="number" name="tip" value="" class="input">
+					<form class="formStatus" action="/tipPost/<%= orders._id %>" method="POST">
+						<input type="number" name="tip" value="" class="input" placeholder="Leave Tip Here">
 						<button type="submit" class="tipButton"> Tip </button>
 					</form>
 
 					<% }else{  %>
-						<p>You tipped: <%= orders.tip %></p>
+						<p>You tipped: $ <%= orders.tip %></p>
 					<%	} %>
-				<%	status = "order is picked up and on its way,Tip Well Please"%>
+				<%	status = "Your order is picked up and on its way, Tip Well Please"%>
 				<%	} %>
 				<% if(orders.delivered === true){ %>
 				<%	status = "Driver is here" %>
