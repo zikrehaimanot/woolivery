@@ -26,12 +26,11 @@
 						</section>
 						<section>
 							<h2>Menu Items</h2>
-							<select>
-								<% for(var j=0; j<results[i].menu.length; j++){%>
-								<option ><%= results[i].menu[j].itemName%> $ <%=results[i].menu[j].price%> </option>
-
-								<% } %>
-							</select>
+								<select>
+									<% for(var j=0; j<results[i].menu.length; j++){%>
+									<option ><%= results[i].menu[j].itemName%> $ <%=results[i].menu[j].price%> </option>
+									<% } %>
+								</select>
 						</section>
 					<% } %>
 

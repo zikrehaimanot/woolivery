@@ -6,7 +6,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
+*::placeholder {     /* modern browser */     color: red; }
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -99,7 +99,9 @@ input, select, textarea {
 	}
 
 	body {
-		background: #242943;
+		background: #ffffff;
+		height: 100%;
+		padding-top: 4rem
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -117,11 +119,13 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #ffffff;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Source Sans Pro";
 		font-size: 17pt;
 		font-weight: 300;
 		letter-spacing: 0.025em;
 		line-height: 1.65;
+
+
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -158,10 +162,7 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
-		a:hover {
-			border-bottom-color: transparent;
-			color: #9bf1ff !important;
-		}
+
 
 		a:active {
 			color: #53e3fb !important;
@@ -181,10 +182,10 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: #242943;
 		font-weight: 600;
 		line-height: 1.65;
-		margin: 0 0 1em 0;
+
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1890,7 +1891,7 @@ input, select, textarea {
 		}
 
 	label {
-		color: #ffffff;
+		color: #242A41;
 		display: block;
 		font-size: 0.8em;
 		font-weight: 600;
@@ -1913,15 +1914,16 @@ input, select, textarea {
 		-ms-appearance: none;
 		appearance: none;
 		background: rgba(212, 212, 255, 0.035);
-		border: none;
+		border: 2px solid;
 		border-radius: 0;
-		color: inherit;
+		color: #242A41;
 		display: block;
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		/* width: 100%; */
+		width: 100%;
 	}
+
 
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
@@ -1933,19 +1935,6 @@ input, select, textarea {
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
-		}
-
-		input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="email"]:focus,
-		input[type="tel"]:focus,
-		input[type="search"]:focus,
-		input[type="url"]:focus,
-		input[type="number"]:focus,
-		select:focus,
-		textarea:focus {
-			border-color: #9bf1ff;
-			box-shadow: 0 0 0 2px #9bf1ff;
 		}
 
 	select {
@@ -1979,7 +1968,7 @@ input, select, textarea {
 	input[type="url"],
 	input[type="number"],
 	select {
-		height: 2.75em;
+		height: 51px;
 	}
 
 	textarea {
@@ -2059,25 +2048,6 @@ input, select, textarea {
 		border-radius: 100%;
 	}
 
-	::-webkit-input-placeholder {
-		color: rgba(244, 244, 255, 0.2) !important;
-		opacity: 1.0;
-	}
-
-	:-moz-placeholder {
-		color: rgba(244, 244, 255, 0.2) !important;
-		opacity: 1.0;
-	}
-
-	::-moz-placeholder {
-		color: rgba(244, 244, 255, 0.2) !important;
-		opacity: 1.0;
-	}
-
-	:-ms-input-placeholder {
-		color: rgba(244, 244, 255, 0.2) !important;
-		opacity: 1.0;
-	}
 
 /* Box */
 
@@ -2137,9 +2107,9 @@ input, select, textarea {
 		}
 
 		.icon.alt:before {
-			background-color: #ffffff;
+			background-color: #242A41;
 			border-radius: 100%;
-			color: #242943;
+			color: white;
 			display: inline-block;
 			height: 2em;
 			line-height: 2em;
@@ -2154,13 +2124,7 @@ input, select, textarea {
 		transition: background-color 0.2s ease-in-out;
 	}
 
-	a.icon.alt:hover:before {
-		background-color: #6fc3df;
-	}
 
-	a.icon.alt:active:before {
-		background-color: #37a6cb;
-	}
 
 /* Image */
 
@@ -2509,19 +2473,11 @@ input, select, textarea {
 	input[type="button"],
 	button,
 	.button {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: transparent;
-		border: 0;
+		background-color: white;
+		border: 2px solid;
 		border-radius: 0;
 		box-shadow: inset 0 0 0 2px #ffffff;
-		color: #ffffff;
+		color: #242A41;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -2536,18 +2492,6 @@ input, select, textarea {
 		white-space: nowrap;
 	}
 
-		input[type="submit"]:hover, input[type="submit"]:active,
-		input[type="reset"]:hover,
-		input[type="reset"]:active,
-		input[type="button"]:hover,
-		input[type="button"]:active,
-		button:hover,
-		button:active,
-		.button:hover,
-		.button:active {
-			box-shadow: inset 0 0 0 2px #9bf1ff;
-			color: #9bf1ff;
-		}
 
 		input[type="submit"]:active,
 		input[type="reset"]:active,
@@ -3122,7 +3066,7 @@ input, select, textarea {
 		box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.15);
 		cursor: default;
 		font-weight: 600;
-		height: 3.25em;
+		height: 4rem;
 		left: 0;
 		letter-spacing: 0.25em;
 		line-height: 3.25em;
@@ -3607,7 +3551,7 @@ input, select, textarea {
 			}
 
 			#main > * > .inner {
-				padding: 4em 0 2em 0 ;
+
 				margin: 0 auto;
 				max-width: 65em;
 				width: calc(100% - 6em);
@@ -3968,6 +3912,12 @@ input, select, textarea {
 
 
 /* GENERIC PAGE STYLING  */
+.navGen{
+	border-bottom: 1px solid #242A41;
+}
+.inner{
+	color: #242A41
+}
 .logo{
 	height: 100px;
 	width:
@@ -3980,36 +3930,85 @@ input, select, textarea {
 	font-size: 27px;
 	border-bottom: none;
 	margin-left: -1em;
+	margin-bottom: 7.5rem;
 }
 .aToButtonG{
-	background-color: white;
+	background-color: transparent;
+	border: 2px solid;
+	border-radius: 0;
+	box-shadow: inset 0 0 0 2px #ffffff;
 	color: #242A41;
-	padding: 0.4em;
-	font-size: 28px;
-	border-radius: 10px;
-	margin-right: 3%;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.8em;
+	font-weight: 600;
+	height: 3.5em;
+	letter-spacing: 0.25em;
+	line-height: 3.5em;
+	padding: 0 1.75em;
+	text-align: center;
 	text-decoration: none;
-	margin-top: .5em;
-}
-.aToButtonC{
-	background-color: white;
-	color: #242A41;
-	padding: 0.4em;
-	font-size: 28px;
-	border-radius: 10px;
-	margin-right: 5%;
-	text-decoration: none;
-	margin-top: .5em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	margin-right: 80px;
 }
 .aToButtonD{
-	background-color: white;
+	background-color: transparent;
+	border: 2px solid;
+	border-radius: 0;
+	box-shadow: inset 0 0 0 2px #ffffff;
 	color: #242A41;
-	padding: 0.4em;
-	font-size: 28px;
-	border-radius: 10px;
-	margin-right: 5%;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.8em;
+	font-weight: 600;
+	height: 3.5em;
+	letter-spacing: 0.25em;
+	line-height: 3.5em;
+	padding: 0 1.75em;
+	text-align: center;
 	text-decoration: none;
-	margin-top: .5em;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+.aToButtonC{
+	background-color: transparent;
+	border: 2px solid;
+	border-radius: 0;
+	box-shadow: inset 0 0 0 2px #ffffff;
+	color: #242A41;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.8em;
+	font-weight: 600;
+	height: 3.5em;
+	letter-spacing: 0.25em;
+	line-height: 3.5em;
+	padding: 0 1.75em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+	margin-right: 80px;
+}
+.logOutButt{
+	background-color: transparent;
+	border: 0;
+	border-radius: 100px;
+	box-shadow: inset 0 0 0 2px #ffffff;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.8em;
+	font-weight: 600;
+	height: 3.5em;
+	letter-spacing: 0.25em;
+	line-height: 3.5em;
+	padding: 0 1.75em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
 }
 /* ORDER CSS FOR RESTURANTS */
 .aToButton{
@@ -4067,10 +4066,6 @@ input, select, textarea {
 	margin-top: 10em;
 }
 
-.checkoutContainer{
-	max-width: 40em;
-	margin: 2em auto;
-}
 .checkOrderStatus{
 	margin-left: 2em;
 	font-size: 2em;
@@ -4093,28 +4088,28 @@ input, select, textarea {
 	display: none;
 }
 .containerPageOrderNow{
-	max-width: 60em;
-	margin: 2em auto;
-	margin-top: 5em;
+	display: flex;
+	width: 100%;
 }
 .split{
-	float: left;
-  /* border-right: 2px solid black; */
-	width: 45%;
-	margin-left: -5em;
+	padding: 4rem;
 }
 .cart{
 	list-style: none;
 }
 .checkoutContainer{
-	float: left;
-	width: 50%;
-	margin-left: 7em;
+	position: fixed;
+	right: 3.5%;
+	top:11%;
+	width: 30em;
+	margin: 2em auto;
+	color: #242A41;
+	padding: 2rem;
+	padding-bottom: 3rem;
 }
+
 .showBorder{
-	border: 2px solid white;
-	padding-bottom: 20px;
-	padding-left: 20px;
+	border: 2px solid #242A41 ;
 	border-radius: 5px;
 }
 .displayNone{
@@ -4129,7 +4124,7 @@ input, select, textarea {
 }
 .displayPrice{
 	font-size: 30px;
-	margin-left: 1em;
+	margin-left: 1.5em;
 }
 .hideSpan{
 	display: none;
@@ -4137,6 +4132,7 @@ input, select, textarea {
 .styleMenuItem{
 	font-weight: bold;
 	font-style: italic;
+	color:  #242A41;
 }
 .styleMenuItem:hover{
 	cursor: pointer;
@@ -4147,23 +4143,29 @@ ul{
 }
 .moveButton{
 	margin: 0 10%;
-
 }
 /* RESTURANT PARTNER */
 
 #orderNowButton{
-	align-items: center;
-	display: flex;
-  height: 80%;
-	padding: 0;
-	margin-top: 0;
-	height: 70%;
-	font-size: 15px;
-	padding: 8px;
-	letter-spacing: 1px;
-
+	background-color: transparent;
+	border: 0;
+	border-radius: 100px;
+	box-shadow: inset 0 0 0 2px #ffffff;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.8em;
+	font-weight: 600;
+	height: 3.5em;
+	letter-spacing: 0.25em;
+	line-height: 3.5em;
+	padding: 0 1.75em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+	margin: 0;
 }
-
 
 /* DRIVER ACCEPT ORDER CSS  */
 
@@ -4202,9 +4204,7 @@ ul{
 	/* margin-top: .5em; */
 	margin-top: -10px;
 }
-ul:first-of-type{
-	margin-top: 30px;
-}
+
 .changePostition{
 	position: relative;
 	left: -9999px;
@@ -4266,8 +4266,8 @@ ul:first-of-type{
 	background-color: transparent;
 	border: 0;
 	border-radius: 0;
-	box-shadow: inset 0 0 0 2px #ffffff;
-	color: #ffffff;
+	box-shadow: inset 0 0 0 2px #242A41;
+	color: #242A41;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 0.8em;
@@ -4282,38 +4282,23 @@ ul:first-of-type{
 	white-space: nowrap;
 }
 .centerHome{
-	margin: 100px auto;
-	margin-top: 250px;
+	height: 100%;
+	background-color: white;
+	color: #242943;
+	padding: 4rem;
 }
 .homeForm{
 	margin: 0 auto;
 	max-width: 30%;
 }
-.inputHome{
-	float: left;
-}
-.inputHome:first-of-type{
-	margin-right: 50px;
-}
+
 .homeButt{
 	margin: 10px 40px;
-
-}
-.homeH1{
-	text-align: center;
-}
-.homePage{
-	background-color: white;
-}
-.pushSignupDown{
-	margin-top: 100px;
-}
-.aToButtonHome{
 	background-color: transparent;
 	border: 0;
 	border-radius: 0;
-	box-shadow: inset 0 0 0 2px #ffffff;
-	color: #ffffff;
+	box-shadow: inset 0 0 0 2px #242A41;
+	color: #242A41;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 0.8em;
@@ -4326,4 +4311,54 @@ ul:first-of-type{
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
+}
+.homeH1{
+	text-align: center;
+	margin: 2rem;
+	line-height: 4rem;
+	margin-bottom: 5rem;
+}
+
+.homePage{
+	background-color: #242A41;
+  margin-bottom: 2rem;
+
+	border: 2px solid;
+}
+input::placeholder{
+	color: #242A41;
+}
+.pushSignupDown{
+	margin-top: 100px;
+}
+.aToButtonHome{
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: inset 0 0 0 2px #ffffff;
+	color: #242A41;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.8em;
+	font-weight: 600;
+	height: 3.5em;
+	letter-spacing: 0.25em;
+	line-height: 3.5em;
+	padding: 0 1.75em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+.form-group{
+	margin-bottom: 2rem;
+
+}
+.form-control{
+	height: 51px;
+}
+.signupH1{
+	text-align: center;
+	margin-bottom: 2rem;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
 }

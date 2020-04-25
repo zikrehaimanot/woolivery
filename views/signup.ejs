@@ -9,18 +9,19 @@
 </head>
 <body>
   <header id="header">
-    <a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+    <a href="/" class="logo"><strong>Woo</strong> <span>Livery</span></a>
   </header>
   <section class="pushSignupDown">
 
 
 <div class="container">
+  <h1 class="signupH1">SIGN UP</h1>
+
 <div class="col-sm-6 col-sm-offset-3">
 
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
-
     <!-- LOGIN FORM -->
     <form action="/signup" method="post">
         <div class="form-group">
@@ -53,15 +54,15 @@
         </div>
         <div class="form-group">
             <label>Purpose</label>
-            <select class="form-control" name="purpose">
+            <select name="purpose">
               <option value="owner">Resturant Owner</option>
               <option value="user">User</option>
               <option value="driver">Driver</option>
             </select>
         </div>
-        <button type="submit">Signup</button>
+        <button type="submit homeButt">Signup</button>
     </form>
-    <p> Have an Account ? <a href="/" class="aToButtonHome">Login</a></p>
+    <p style="color:#242A41"> Have an Account ? <a href="/" class="aToButtonHome">Login</a></p>
 
 
 

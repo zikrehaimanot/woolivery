@@ -8,43 +8,37 @@
 	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 </head>
 
-	<header id="header">
-		<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
-		<nav>
-			<ul class="links">
-				<!-- <li><a href="generic">Home</a></li> -->
-			</ul>
-		</nav>
-	</header>
-	<section class="containerPageOrderNow">
-		<!-- <div id="main" class="alt"> -->
-		<p class="userId hide"  class="displayNone"><%=user._id%></p>
-		<section class="split">
-			<% for(var i=0; i<results.length; i++){%>
-				<section>
-					<h2>Resturant Name: <span><%=results[i].resturantName %></span></h2>
-				</section>
-				<section>
-					<h2>Menu Items</h2>
-					<ul>
-						<% for(var j=0; j<results[i].menu.length; j++){%>
-							<li class="resItem">
-								<span class="styleMenuItem"><%= results[i].menu[j].itemName%></span>
-								<span class="styleMenuItem"> <%=results[i].menu[j].price%></span>
-								<span class="hide"><%=results[i].createdBy %></span>
-								<span class="hide"><%=results[i]._id %></span>
-							</li>
-							<% } %>
-						</ul>
-					</section>
-					<% } %>
-				</section>
+<%- include header.ejs %>
 
-				<section class="checkoutContainer">
-						<ul class="cart">
-							<span class="hideSpan"><strong>Your Cart:</strong></span>
-						</ul>
-						<p class="displayPrice"></p>
+<section class="containerPageOrderNow">
+	<!-- <div id="main" class="alt"> -->
+	<p class="userId hide"  class="displayNone"><%=user._id%></p>
+	<section class="split">
+		<% for(var i=0; i<results.length; i++){%>
+			<section>
+				<h1>Resturant Name: <span><%=results[i].resturantName %></span></h1>
+			</section>
+			<section>
+				<h2>Menu Items</h2>
+				<ul>
+					<% for(var j=0; j<results[i].menu.length; j++){%>
+						<li class="resItem">
+							<span class="styleMenuItem"><%= results[i].menu[j].itemName%></span>
+							<span class="styleMenuItem"> <%=results[i].menu[j].price%></span>
+							<span class="hide"><%=results[i].createdBy %></span>
+							<span class="hide"><%=results[i]._id %></span>
+						</li>
+						<% } %>
+					</ul>
+				</section>
+				<% } %>
+			</section>
+
+			<section class="checkoutContainer">
+				<ul class="cart">
+					<span class="hideSpan"><em style="color:#242A41">Your Cart:</em></span>
+				</ul>
+				<p class="displayPrice"></p>
 
 				<section class="floatButt moveButton">
 					<button type="submit" name="button" class="clearCart hide cartHide "> Clear Cart</button>
@@ -52,10 +46,10 @@
 				<section class="floatButt">
 					<button type="submit" name="button" class="hide checkout ">CheckOut</button>
 				</section>
-				</section>
-
 			</section>
-			<script src="orderNow.js" ></script>
 
-		</body>
-		</html>
+		</section>
+		<script src="orderNow.js" ></script>
+
+	</body>
+	</html>

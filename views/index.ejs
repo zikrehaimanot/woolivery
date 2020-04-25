@@ -5,25 +5,28 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <header id="header">
-    <a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
+    <a href="/" class="logo"><strong>Woo</strong> <span>Livery</span></a>
   </header>
 
     <section class="centerHome">
       <h1 class="homeH1">WooLivery <br> <em>Delivery With A Purpose</em> </h1>
 
       <form action="/login" method="post" class="homeForm">
-          <div class="form-group inputHome">
-              <!-- <label>Email</label> -->
-              <input type="text" class="form-control homePage " name="email" placeholder="Email">
-              <button type="submit" class="btn btn-warning btn-lg homeButt">Login</button>
+          <div class="inputHome">
+              <label>Email</label>
+              <input type="text" class="form-control homePage " name="email" autocomplete="off"placeholder="Email">
+              <label>Password</label>
+              <input type="password" class="form-control homePage " autocomplete="off" name="password" placeholder="Password">
 
           </div>
-          <div class="form-group inputHome">
-              <!-- <label>Password</label> -->
-              <input type="password" class="form-control " name="password" placeholder="Password">
+          <div class="inputHome">
+
+              <button type="submit" class="btn btn-warning btn-lg homeButt">Login</button>
+
               <a href="/signup" class="aToButtonIndex homeButt">Signup</a>
           </div>
       </form>

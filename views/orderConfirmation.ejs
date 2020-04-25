@@ -8,9 +8,8 @@
 	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 </head>
 <body class="is-preload">
-	<header id="header">
-		<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
-	</header>
+	<%- include header.ejs %>
+
 	<section class="containerPageOrderStatus">
 
 
@@ -45,17 +44,8 @@
 						<!-- <section>
 							<p>thank you for ordering message</p>
 						</section> -->
-						<footer id="footer">
-							<div class="inner">
-								<ul class="icons">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								</ul>
-								<ul class="copyright">
-								</ul>
-							</div>
-						</footer>
+						<%- include footer.ejs %>
+
 
 					</div>
 				</section>
