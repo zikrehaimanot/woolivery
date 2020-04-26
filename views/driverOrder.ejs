@@ -11,40 +11,36 @@
 	<header id="header">
 		<a href="/generic" class="logo"><strong>Woo</strong> <span>Livery</span></a>
 		<a href="/myDriverOrders" class="aToButtonD"id="orderNowButton">My Orders</a>
+	</header>
+	<section class="containerPageDriverOrder">
+		<h1>Accept Orders</h1>
 
-		<!-- <nav>
-		<ul class="links">
-		<li><a href="generic">Home</a></li>
-
-
-	</ul>
-</nav> -->
-</header>
-<section class="containerPageDO">
-
-	<h2 class="resName"></h2>
-	<input type="text" name="" disabled value= "<%= user._id%>" id="driverId">
-	<section class="holdsOrder">
-
+		<input type="text" name="" disabled value= "<%= user._id%>" id="driverId">
 		<%  for(var i = 0 ; i < orders.length; i++){ %>
 			<% if(orders[i].completed === true && orders[i].driverAccepted === false) {%>
-				<ul>
+				<section class="holdsOrderDiv">
+					<ul>
+						<li class="hide"><%= orders[i]._id %></li>
+						<li> <span class="boldDriver">Ordered Items:</span>
+							<% orders[i].orderedItem.forEach(item => {   %>
+								<li> - <%=item %> </li>
+								<%	}) %>
+							</li>
+							<li> <span class="boldDriver">Total Price:</span> <span class="boldDriverPrice">$<%= orders[i].totalPrice %></span></li>
+							<li class="hide"><%= orders[i].driverAccepted %></li>
+						</ul>
+						<div class="holdsButton">
+							<a  href="#"class="acceptOrder aToButton">Accept</a>
+							<a href="#"class="declineOrder aToButton">Decline</a>
+						</div>
+					</section>
+					<% } %>
+					<% } %>
 
-					<li class="hide"><%= orders[i]._id %></li>
-					<li><%= orders[i].orderedItem %></li>
-					<li><%= orders[i].totalPrice %></li>
-					<li class="hide"><%= orders[i].driverAccepted %></li>
+				</section>
+				<script type="text/javascript" src="driverOrder.js">
 
-				</ul>
-				<a  href="#"class="acceptOrder">Accept</a>
-				<a href="#"class="declineOrder">Decline</a>
-				<% } %>
-				<% } %>
-			</section>
-		</section>
-		<script type="text/javascript" src="driverOrder.js">
-
-		</script>
-	</div>
-</body>
-</html>
+				</script>
+			</div>
+		</body>
+		</html>

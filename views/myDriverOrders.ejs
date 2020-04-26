@@ -1,57 +1,62 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>WooLivery</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-<section class="containerPage">
+<head>
+	<title>WooLivery</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="css/main.css" />
+	<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+	<section class="containerPage">
 
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-				<%- include header.ejs %>
-					</div>
+			<!-- Header -->
+			<%- include header.ejs %>
+		</div>
 
-				<!-- Contact -->
-				<h2 class="driverId" id="driverIdOrder"><%= user._id%></h2>
+		<!-- Contact -->
+		<h2 class="driverId" id="driverIdOrder"><%= user._id%></h2>
 
-					<h2 class="resName"> </h2>
-				<h2>Tell Customers Why You Drive<input type="text" name="" value="" placeholder="why I drive" id="driverReason"></h2>
-			 <section>
+		<h2 class="resName"> </h2>
+		<h2>Tell Customers Why You Drive<input type="text" name="" value="" placeholder="Tell Customers Why You Drive So That They Tip You Better!" id="driverReason"></h2>
+		<section>
 
-				<%  for(var i = 0 ; i < orders.length; i++){ %>
+			<%  for(var i = 0 ; i < orders.length; i++){ %>
 				<% if(orders[i].driverAccepted === true && orders[i].driverId == user._id && orders[i].delivered === false) {%>
-				<div>
-					<ul>
-						<li><%= orders[i]._id %></li>
-						<li><%= orders[i].customer %></li>
-						<li><%= orders[i].orderedItem %></li>
-						<li><%= orders[i].totalPrice %></li>
+					<div>
+						<ul>
+							<li class="hide"> <%= orders[i]._id %></li>
+							<li class="hide"><%= orders[i].customer %></li>
+							<li class="addMargin"> <span class="boldDriver">Ordered Items:</span>
+								<% orders[i].orderedItem.forEach(item => {   %>
+									<li> - <%=item %> </li>
+									<%	}) %>
+								</li>
+								<li> <span class="boldDriver">Total Price: </span>$<%= orders[i].totalPrice %></li>
 
-					</ul>
-					<a  href="#"class="pickedUp aToButtonDriver" >Picked-Up</a>
-					<a href="#"class="delivered aToButtonDriver">Delivered</a>
+							</ul>
+							<a  href="#"class="pickedUp aToButtonDriver" >Picked Up</a>
+							<a href="#"class="delivered aToButtonDriver">Delivered</a>
+						</div>
+						<% } %>
+						<% } %>
+
+					</section>
+					<br>
+
+
+
 				</div>
-				<% } %>
-				<% } %>
-
 			</section>
-				<br>
-				<%- include footer.ejs %>
-
-
-			</div>
-			</section>
+			<%- include footer.ejs %>
 			<script type="text/javascript" src="driverUpdate.js">
 
 			</script>
 
 			<!-- Specific orders to the driver -->
-	</body>
-</html>
+		</body>
+		</html>

@@ -11,20 +11,15 @@
 	<%- include header.ejs %>
 	<section class="containerPage">
 
-		<!-- <div id="wrapper">
-
-		</div> -->
-		<!-- <span class="image main"><img src="images/foog.jpg" alt="" /></span> -->
-
 		<h2 class="resName">Orders For <%= resturants[0].resturantName %></h2>
 
 		<%  for(var i = 0 ; i < orders.length; i++){ %>
 			<div class="holdsOrdersDiv">
 				<ul>
-					<li><%= orders[i]._id %></li>
-					<li><%= orders[i].customer %></li>
+					<li class="hide"><%= orders[i]._id %></li>
+					<li class="hide"><%= orders[i].customer %></li>
 					<li><em>The Order:</em> <%= orders[i].orderedItem%></li>
-					<li> <em>Total Price:</em> <%= orders[i].totalPrice%></li>
+					<li> <em>Total Price:</em> $<%= orders[i].totalPrice%></li>
 				</ul>
 				<div class="holdsButton">
 					<a  href="#"class="acceptOrder aToButton" >Accept</a>

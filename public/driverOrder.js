@@ -4,10 +4,10 @@ var completeOrder = document.querySelectorAll('.completeOrder')
 var resName = document.querySelector('.resName')
 Array.from(acceptOrder).forEach(button =>{
   button.addEventListener('click',function (event){
-
+    console.log(this.parentNode.parentNode.childNodes[1].childNodes[1].innerText);
     var driverId = document.getElementById('driverId').value
     // console.log(driverId);
-    var orderId = this.parentNode.childNodes[1].childNodes[1].innerText
+    var orderId = this.parentNode.parentNode.childNodes[1].childNodes[1].innerText
 
     // var customerId = this.parentNode.childNodes[1].childNodes[1].innerText
     // var driverAccepted = this.parentNode.childNodes[1].childNodes[5].innerText

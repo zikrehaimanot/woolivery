@@ -169,10 +169,10 @@ section, summary, time, mark, audio, video {
 			color: #53e3fb !important;
 		}
 
-		strong, b {
+		/* strong, b {
 			color: #ffffff;
 			font-weight: 600;
-		}
+		} */
 
 		em, i {
 			font-style: italic;
@@ -4031,8 +4031,6 @@ section, summary, time, mark, audio, video {
 			/* border: 2px solid #242A41; */
 		}
 
-
-
 		 /* .acceptOrder{
 			background-color: white;
 			color: #242A41;
@@ -4048,6 +4046,7 @@ section, summary, time, mark, audio, video {
 			background-color: white;
 			color: #242A41;
 			padding: 0.4em;
+
 			font-size: 28px;
 			border-radius: 10px;
 			margin-left: 1%;
@@ -4063,7 +4062,11 @@ section, summary, time, mark, audio, video {
 		display: flex;
 		justify-content: center;
 		} */
-
+		.containerPageDriverOrder{
+			max-width: 40em;
+			margin: 2em auto;
+			color: #242A41;
+		}
 		.holdsOrdersDiv{
 			margin-bottom: 2em;
 			margin-left: 4em;
@@ -4073,6 +4076,13 @@ section, summary, time, mark, audio, video {
 		}
 		.holdsOrdersDiv:last-child{
 			border: none;
+		}
+		.boldDriver{
+			font-weight: bold;
+		}
+		.boldDriverPrice{
+			font-weight: bold;
+			font-size: 24px;
 		}
 		.holdsButton{
 			padding-bottom: 2rem;
@@ -4259,11 +4269,6 @@ section, summary, time, mark, audio, video {
 			position: relative;
 			left: -9999px;
 		}
-		#footerDriver{
-			position: relative;
-			top: 450px;
-			left: 700px;
-		}
 		.holdsOrder{
 			margin: 0 auto;
 			margin-left: 50px;
@@ -4271,6 +4276,10 @@ section, summary, time, mark, audio, video {
 		.containerPageDO{
 			max-width: 18em;
 			margin: 0 auto;
+			color: red;
+		}
+		.holdsOrderDiv{
+			border-bottom: 1px solid #242A41;
 		}
 
 		/* DRIVER PICKED UP FOOD CSS */
@@ -4283,19 +4292,24 @@ section, summary, time, mark, audio, video {
 			background-color: white;
 			color: #242A41;
 			padding: 0.4em;
-			font-size: 28px;
+			font-size: 22px;
 			border-radius: 10px;
 			margin-left: 1%;
-			text-decoration: none;
+			/* text-decoration: underline; */
 			/* margin-top: .5em; */
 			margin-top: -10px;
+			border: 1px solid #242A41;
 		}
-
+		.pickedUp{
+			margin-right: 1rem;
+		}
 		.changePostition{
 			position: relative;
 			left: -9999px;
 		}
-
+		.addMargin{
+			margin-top: 2rem;
+		}
 
 		/* CSS FOR ORDER STATUS */
 
@@ -4321,8 +4335,8 @@ section, summary, time, mark, audio, video {
 			margin-left: 15em;
 			margin-top: 10em;
 			color: #242A41;
-			display: flex;
-			justify-content: center;
+			/* display: flex;
+			justify-content: center; */
 		}
 		.formStatus{
 			height: 100px;
