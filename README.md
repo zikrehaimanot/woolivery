@@ -58,21 +58,21 @@ https://github.com/zikrehaimanot/tictactoe
 ## How to Use the App:
 
 1.) Clone repo <br>
-2.) npm install
-3.) run node server.js
-4.)Navigate to localhost:8080
+2.) npm install <br>
+3.) run node server.js <br>
+4.)Navigate to localhost:8080 <br>
 
 ## THEN
 
-5.) signup and specify what type of user you are (restaurant owner, driver or user). (to get the full experience you'll need all three)
-6.) create a restaurant.
-7.) login as a customer and place an order at your restaurant.
-8.) go back into your restaurant account and accept the order and mark it completed. ( if you do this on an incognito tab you can keep the order status page open as a customer and keep tracking it as the status gets updated.)
-9.) if you put your real phone number when signing up as a customer you should be receiving texts.
-10.) Drivers only see orders when they've been marked completed by the restaurant.
-11.) log in as a driver once you've marked the order completed as the restaurant owner.
-12.) accept your order.
-13.) your order will go to your my orders page.
-14 pick up the order and send the customer a reason why you're driving ( i drive to pay my student loans.) this pushes the customer to leave a healthy tip
-15.) deliver the order to the customer (text notifications still being sent)
-16.) on the customer portal you can also track the order on the order confirmation page.
+5.) signup and specify what type of user you are (restaurant owner, driver or user). (to get the full experience you'll need all three) <br>
+6.) create a restaurant.<br>
+7.) login as a customer and place an order at your restaurant.<br>
+8.) go back into your restaurant account and accept the order and mark it completed. ( if you do this on an incognito tab you can keep the order status page open as a  customer and keep tracking it as the status gets updated.) <br>
+9.) if you put your real phone number when signing up as a customer you should be receiving texts. <br>
+10.) Drivers only see orders when they've been marked completed by the restaurant. <br>
+11.) log in as a driver once you've marked the order completed as the restaurant owner. <br>
+12.) accept your order. <br>
+13.) your order will go to your my orders page. <br>
+14 pick up the order and send the customer a reason why you're driving ( i drive to pay my student loans.) this pushes the customer to leave a healthy tip <br>
+15.) deliver the order to the customer (text notifications still being sent) <br>
+16.) on the customer portal you can also track the order on the order confirmation page. <br>
