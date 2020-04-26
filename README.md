@@ -1,4 +1,4 @@
-#WooLivery
+# WooLivery
 
 Full Stack Application meant to recreate modern food delivery apps but with a twist. We're driver friendly. WooLivery aims to be a responsible medium for entrepreneurs and consumers to interact. The application is built for three types of users to use. People who want to order food, restaurant owners looking to sell food, drivers look to make money delivering orders.
 
@@ -57,12 +57,12 @@ https://github.com/zikrehaimanot/tictactoe
 
 ## How to Use the App:
 
-1.) Clone repo
+1.) Clone repo <br>
 2.) npm install
 3.) run node server.js
 4.)Navigate to localhost:8080
 
-##THEN
+## THEN
 
 5.) signup and specify what type of user you are (restaurant owner, driver or user). (to get the full experience you'll need all three)
 6.) create a restaurant.
