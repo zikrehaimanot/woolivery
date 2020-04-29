@@ -4443,3 +4443,6 @@ section, summary, time, mark, audio, video {
 			margin-bottom: 2rem;
 			font-family: "Source Sans Pro", Helvetica, sans-serif;
 		}
+		.white{
+			color: white;
+		}
