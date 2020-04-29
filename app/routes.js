@@ -7,18 +7,15 @@ module.exports = function(app, passport, db, ObjectId,nexmo) {
   // show the home page (will also have our login links)
   //Result
   app.get('/', function(req, res) {
-    //tells us what page to render in the dom
     res.render('index.ejs');
   });
   app.get('/generic', isLoggedIn, function(req, res) {
-    //tells us what page to render in the dom
     res.render('generic.ejs',{
       user: req.user
     });
   });
 
   app.get('/homepage', function(req, res) {
-    //tells us what page to render in the dom
     res.render('homepage.ejs');
   });
 

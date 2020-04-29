@@ -6,7 +6,6 @@ Full Stack Application meant to recreate modern food delivery apps but with a tw
 
 https://woolivery.herokuapp.com/
 
-
 ## The Home Page
 
 ![home page WooLivery](home.png)
