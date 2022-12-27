@@ -28,7 +28,9 @@ https://woolivery.herokuapp.com/
 
 ## Link To Live Site Below
 
-https://woolivery.herokuapp.com/
+https://woolivery.herokuapp.com/ ( no longer active ) 
+
+update (heroku no longer sponsers free hosting services so the site is no longer active via the link above, if you'd like to spin it up locally there are instructions below on how to do that) 
 
 ## How This Site Was Made:
 
