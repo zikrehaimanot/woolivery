@@ -26,7 +26,7 @@ Full Stack Application meant to recreate modern food delivery apps but with a tw
 
 https://woolivery.herokuapp.com/ ( no longer active ) 
 
-update (heroku no longer sponsers free hosting services so the site is no longer active via the link above, if you'd like to spin it up locally there are instructions below on how to do that) 
+UPDATE (heroku no longer sponsers free hosting services so the site is no longer active via the link above, if you'd like to spin it up locally there are instructions below on how to do that) 
 
 ## How This Site Was Made:
 
