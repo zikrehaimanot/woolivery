@@ -46,17 +46,6 @@ The application also has text alerts for the customer as their food is being mad
 
 3.) Using components more so that my code isn't redundant and I can allocate more time to building new features, instead of rewriting the same code for 10 different pages.
 
-## Examples Of Other Work:
-
-https://github.com/zikrehaimanot/memory-matching-game
-
-https://github.com/zikrehaimanot/checkstockprice
-
-https://github.com/zikrehaimanot/dogapi
-
-https://github.com/zikrehaimanot/tictactoe
-
-
 ## How to Use the App:
 
 1.) Clone repo <br>
