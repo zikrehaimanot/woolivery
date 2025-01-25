@@ -26,7 +26,7 @@ section, summary, time, mark, audio, video {
 	vertical-align: baseline;}
 
 
-	article, aside, details, figcaption, figure,
+	/* article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;}
 
@@ -4103,7 +4103,7 @@ section, summary, time, mark, audio, video {
 		}
 		.keepRed{
 			background-color: red;
-		}
+		} */
 		/* RANDOM STYLING NEED TO PLLACE IN CORRECT SPOT */
 		.createElement{
 			margin: 2em 0;
